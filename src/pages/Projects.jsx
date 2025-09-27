@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
+import profile from '../assets/images/Laye.png';
 
 export default function Projects() {
   const scrollToSection = (sectionId) => {
@@ -11,7 +12,7 @@ export default function Projects() {
         block: 'start'
       });
     }
-  };
+  }; 
 
   const projects = [
     {
@@ -84,8 +85,44 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen py-20 px-6">
+    <div className="min-h-screen py-1 px-6">
       <div className="max-w-7xl mx-auto">
+        {/* Image de profil */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center w-full h-auto mb-12 mt-18"
+        >
+          <div className="relative inline-block p-8 rounded-2xl">
+            <motion.div
+              className="mb-11 absolute inset-14 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-30 blur-xl -z-10"
+              animate={{
+                rotate: [0, 360, 0],            // tourne puis revient
+                scale: [1, 1.1, 1],             // zoom léger
+                opacity: [0.2, 0.35, 0.2],      // effet pulsation
+                filter: ["blur(20px)", "blur(30px)", "blur(20px)"], // variation du flou
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+
+
+            <motion.img 
+              src={profile}
+              alt="Albert Nahouo Coulibaly"
+              className="w-full h-auto md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain shadow-2xl mx-auto rounded-lg relative z-10"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            />
+
+
+          </div>
+        </motion.div>
+
         {/* Header */}
         <motion.div
           variants={containerVariants}

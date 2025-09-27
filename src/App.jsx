@@ -17,7 +17,7 @@ const App = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="min-h-screen py-20">
+      <section id="projects" className="min-h-screen py-5">
         <Projects />
       </section>
 
