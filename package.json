@@ -1,0 +1,38 @@
+{
+  "name": "volbis-s-portefolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio React avec Radix, Tailwind CSS, Supabase et Framer Motion",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.0.0",
+    "@supabase/supabase-js": "^2.0.0",
+    "framer-motion": "^10.18.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^7.9.1",
+    "react-scripts": "^5.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
