@@ -16,7 +16,7 @@ export default function ProjectCard({ title, description, image, technologies, d
     >
       {/* Main Card */}
       <motion.div
-        className="relative overflow-hidden bg-motion-gray-900/30 backdrop-blur-sm border border-motion-gray-800/50 rounded-2xl transition-all duration-500"
+        className="relative overflow-hidden bg-motion-gray-900/30 backdrop-blur-sm border border-motion-gray-800/50 rounded-2xl transition-all duration-500 w-full max-w-md mx-auto"
         whileHover={{ 
           y: -8,
           transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
@@ -30,7 +30,7 @@ export default function ProjectCard({ title, description, image, technologies, d
         />
 
         {/* Image Container */}
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-32 overflow-hidden">
           <motion.img 
             src={image} 
             alt={title} 
@@ -99,16 +99,16 @@ export default function ProjectCard({ title, description, image, technologies, d
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4">
           <motion.h3 
-            className="text-xl font-semibold text-white mb-3 group-hover:text-motion-blue-400 transition-colors duration-300"
+            className="text-base font-bold text-white mb-2 group-hover:text-orange-400 transition-colors duration-300"
             layoutId={`title-${index}`}
           >
             {title}
           </motion.h3>
           
           <motion.p 
-            className="text-motion-gray-400 mb-4 leading-relaxed text-sm"
+            className="text-motion-gray-400 mb-3 leading-relaxed text-xs"
             layoutId={`description-${index}`}
           >
             {description}
@@ -117,7 +117,7 @@ export default function ProjectCard({ title, description, image, technologies, d
           {/* Technologies */}
           {technologies && (
             <motion.div 
-              className="flex flex-wrap gap-2 mb-4"
+              className="flex flex-wrap gap-1 mb-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -125,7 +125,7 @@ export default function ProjectCard({ title, description, image, technologies, d
               {technologies.map((tech, techIndex) => (
                 <motion.span
                   key={tech}
-                  className="px-3 py-1 bg-motion-gray-800/50 border border-motion-gray-700/50 rounded-full text-xs text-motion-gray-300 font-medium"
+                  className="px-2 py-0.5 bg-motion-gray-800/50 border border-motion-gray-700/50 rounded-full text-xs text-motion-gray-300 font-medium"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3 + techIndex * 0.05 }}
@@ -144,12 +144,12 @@ export default function ProjectCard({ title, description, image, technologies, d
 
           {/* Footer */}
           <motion.div
-            className="flex items-center justify-between pt-2"
+            className="flex items-center justify-between pt-1"
             initial={{ opacity: 0.7 }}
             animate={{ opacity: isHovered ? 1 : 0.7 }}
             transition={{ duration: 0.2 }}
           >
-            <span className="text-sm text-motion-gray-500 font-medium">
+            <span className="text-xs text-motion-gray-500 font-medium">
               View Project
             </span>
             <motion.svg
