@@ -1,16 +1,8 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
+import ProjectCarousel from '../components/Carroussel';
 import profile from '../assets/images/Laye.png';
-// Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
 
 export default function Projects() {
   const scrollToSection = (sectionId) => {
@@ -22,57 +14,6 @@ export default function Projects() {
       });
     }
   }; 
-
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'Une plateforme e-commerce moderne avec panier, paiement intégré et gestion des stocks en temps réel.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Tailwind', 'Supabase', 'Stripe'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/ecommerce'
-    },
-    {
-      title: 'Dashboard Analytics',
-      description: 'Tableau de bord interactif avec graphiques animés pour visualiser les données business en temps réel.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Framer Motion', 'Chart.js', 'PostgreSQL'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/dashboard'
-    },
-    {
-      title: 'Task Management App',
-      description: 'Application de gestion de tâches collaborative avec drag & drop et notifications en temps réel.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Radix UI', 'Supabase', 'WebSockets'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/tasks'
-    },
-    {
-      title: 'Social Media Clone',
-      description: 'Clone de réseau social avec posts, likes, commentaires et système de followers complet.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Tailwind', 'Supabase', 'Real-time'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/social'
-    },
-    {
-      title: 'Weather App',
-      description: 'Application météo avec géolocalisation, prévisions 7 jours et animations fluides.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'OpenWeather API', 'Framer Motion'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/weather'
-    },
-    {
-      title: 'Portfolio Designer',
-      description: 'Générateur de portfolios avec templates personnalisables et déploiement automatique.',
-      image: '/api/placeholder/400/250',
-      technologies: ['React', 'Tailwind', 'Vercel API', 'Templates'],
-      demoUrl: 'https://demo.com',
-      codeUrl: 'https://github.com/volbis/portfolio-generator'
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -146,7 +87,8 @@ export default function Projects() {
               { count: 24, label: "Technologies", icon: "⚡" },
               { count: 5, label: "Utilisateurs impactés", icon: "⭐" },
               { count: 5, label: "Compétitions", icon: "🏆" },
-              { count: 2500, label: "Abonnés LinkedIn", icon: "👥" }
+              { count: 2500, label: "Abonnés LinkedIn", icon: "👥" },
+              { count: 1088, label: "Contributions github", icon: "💻" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -183,237 +125,8 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-
-        {/* Triple Slider Carousel - Style exact de l'image */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative w-full mx-auto flex justify-center"
-        >
-          <div className="w-full max-w-7xl mx-auto relative">
-            {/* Masque central fixe - Card toujours au centre */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto">
-              <div className="w-[450px] scale-110">
-                <ProjectCard 
-                  {...projects[0]}
-                  index={0}
-                />
-              </div>
-            </div>
-
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              spaceBetween={30}
-              slidesPerView="auto"
-              centeredSlides={false}
-              centerInsufficientSlides={false}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-                dynamicBullets: true,
-              }}
-              navigation={true}
-              loop={true}
-              grabCursor={true}
-              initialSlide={0}
-              slideToClickedSlide={false}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                  spaceBetween: 15,
-                },
-                768: {
-                  slidesPerView: "auto",
-                  spaceBetween: 25,
-                },
-                1024: {
-                  slidesPerView: "auto",
-                  spaceBetween: 30,
-                },
-              }}
-              className="triple-slider !pb-16 w-full opacity-50"
-            >
-            {projects.map((project, index) => (
-              <SwiperSlide key={index} className="!h-auto">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="h-full"
-                >
-                  <ProjectCard 
-                    {...project}
-                    index={index}
-                  />
-                </motion.div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          </div>
-          
-          {/* Styles CSS pour Triple Slider exact comme l'image */}
-          <style jsx>{`
-            .triple-slider {
-              padding: 40px 0;
-              position: relative;
-              overflow: visible;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-            }
-            
-            .triple-slider .swiper {
-              width: 100%;
-              max-width: 100vw;
-              display: flex;
-              justify-content: center;
-            }
-            
-            .triple-slider .swiper-wrapper {
-              align-items: center;
-              display: flex;
-              justify-content: center;
-              width: 100%;
-            }
-            
-            .triple-slider .swiper-container {
-              overflow: visible;
-              text-align: center;
-              width: 100%;
-            }
-            
-            .triple-slider .swiper-slide {
-              transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-              opacity: 1;
-              transform: scale(0.8);
-              width: 320px !important;
-              display: flex;
-              justify-content: center;
-            }
-            
-            .triple-slider .swiper-slide-active {
-              opacity: 0;
-              transform: scale(0);
-              z-index: 1;
-              width: 0px !important;
-              display: none;
-            }
-            
-            .triple-slider .swiper-slide-prev,
-            .triple-slider .swiper-slide-next {
-              opacity: 1;
-              transform: scale(0.9);
-              z-index: 5;
-              width: 350px !important;
-            }
-            
-            .triple-slider .swiper-slide:hover:not(.swiper-slide-active) {
-              transform: scale(0.95);
-              opacity: 1;
-            }
-            
-            .triple-slider .swiper-slide-active:hover {
-              opacity: 0;
-            }
-            
-            .triple-slider .swiper-pagination {
-              bottom: 20px;
-            }
-            
-            .triple-slider .swiper-pagination-bullet {
-              width: 12px;
-              height: 12px;
-              background: rgba(240, 161, 59, 0.3);
-              opacity: 0.6;
-              border-radius: 50%;
-              transition: all 0.3s ease;
-            }
-            
-            .triple-slider .swiper-pagination-bullet-active {
-              background: #F0A13B;
-              opacity: 1;
-              transform: scale(1.2);
-            }
-            
-            .triple-slider .swiper-button-next,
-            .triple-slider .swiper-button-prev {
-              width: 60px;
-              height: 60px;
-              margin-top: -30px;
-              background: linear-gradient(135deg, rgba(240, 161, 59, 0.2), rgba(240, 161, 59, 0.1));
-              border: 2px solid rgba(240, 161, 59, 0.3);
-              border-radius: 50%;
-              color: #F0A13B;
-              backdrop-filter: blur(15px);
-              transition: all 0.4s ease;
-              box-shadow: 0 8px 32px rgba(240, 161, 59, 0.1);
-            }
-            
-            .triple-slider .swiper-button-next:hover,
-            .triple-slider .swiper-button-prev:hover {
-              background: linear-gradient(135deg, rgba(240, 161, 59, 0.4), rgba(240, 161, 59, 0.2));
-              border-color: rgba(240, 161, 59, 0.6);
-              transform: scale(1.1);
-              box-shadow: 0 12px 40px rgba(240, 161, 59, 0.25);
-            }
-            
-            .triple-slider .swiper-button-next::after,
-            .triple-slider .swiper-button-prev::after {
-              font-size: 20px;
-              font-weight: 900;
-            }
-            
-            .triple-slider .swiper-button-prev {
-              left: -30px;
-            }
-            
-            .triple-slider .swiper-button-next {
-              right: -30px;
-            }
-            
-
-            
-            @media (max-width: 1024px) {
-              .triple-slider .swiper-button-next,
-              .triple-slider .swiper-button-prev {
-                width: 50px;
-                height: 50px;
-                margin-top: -25px;
-              }
-              
-              .triple-slider .swiper-button-prev {
-                left: -10px;
-              }
-              
-              .triple-slider .swiper-button-next {
-                right: -10px;
-              }
-            }
-            
-            @media (max-width: 768px) {
-              .triple-slider .swiper-button-next,
-              .triple-slider .swiper-button-prev {
-                display: none;
-              }
-              
-              .triple-slider .swiper-slide {
-                opacity: 1;
-                transform: scale(1) !important;
-                width: 100% !important;
-              }
-              
-              .triple-slider .swiper-slide-active {
-                transform: scale(1) !important;
-                width: 100% !important;
-              }
-            }
-          `}</style>
-        </motion.div>
+        {/* Carrousel des projets */}
+        <ProjectCarousel />
 
         {/* Call to Action */}
         <motion.div
