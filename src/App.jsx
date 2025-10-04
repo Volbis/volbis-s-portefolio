@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import BackgroundWrapper from './components/BackgroundWrapper';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
+import Projects from './pages/project';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 

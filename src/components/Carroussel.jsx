@@ -90,7 +90,7 @@ function ProjectCard({ project }) {
             {project.tech.map((tech, index) => (
               <span
                 key={index}
-                className="px-2 py-1 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30"
+                className="px-2 py-0.5 bg-orange-500/20 text-orange-300 text-xs rounded-full border border-orange-500/30"
               >
                 {tech}
               </span>
@@ -102,7 +102,7 @@ function ProjectCard({ project }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-white/10 text-white text-sm rounded-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
+              className="px-3 py-1.5 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -112,7 +112,7 @@ function ProjectCard({ project }) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg"
+              className="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg"
               whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(249, 115, 22, 0.4)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -169,7 +169,7 @@ export default function ProjectCarousel() {
             loopFillGroupWithBlank={false}
             speed={1200}
             autoplay={{ 
-              delay: 3000, 
+              delay: 2700, 
               disableOnInteraction: false,
               pauseOnMouseEnter: false,
               reverseDirection: false,
@@ -321,22 +321,26 @@ export default function ProjectCarousel() {
         .project-swiper .swiper-button-next,
         .project-swiper .swiper-button-prev {
           color: transparent;
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(15px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          border-radius: 16px;
-          width: 55px;
-          height: 55px;
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+          backdrop-filter: blur(20px);
+          border: 1px solid rgba(255, 255, 255, 0.35);
+          border-radius: 20px;
+          width: 50px;
+          height: 50px;
           top: 50%;
           margin-top: 0;
           transform: translateY(-50%);
-          transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 
+                      0 4px 16px rgba(0, 0, 0, 0.12),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
           z-index: 30;
           display: flex;
           align-items: center;
           justify-content: center;
           position: absolute;
+          cursor: pointer;
+          overflow: hidden;
         }
         
         .project-swiper .swiper-button-next {
@@ -349,10 +353,12 @@ export default function ProjectCarousel() {
         
         .project-swiper .swiper-button-next:hover,
         .project-swiper .swiper-button-prev:hover {
-          background: rgba(255, 255, 255, 0.25);
-          border-color: rgba(255, 255, 255, 0.5);
-          transform: translateY(-50%) scale(1.08);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.2);
+          background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(234, 88, 12, 0.2));
+          border-color: rgba(249, 115, 22, 0.4);
+          transform: translateY(-50%) scale(1.1);
+          box-shadow: 0 12px 40px rgba(249, 115, 22, 0.25), 
+                      0 6px 20px rgba(0, 0, 0, 0.15),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         
         .project-swiper .swiper-button-next::after,
@@ -363,54 +369,62 @@ export default function ProjectCarousel() {
         .project-swiper .swiper-button-next::before,
         .project-swiper .swiper-button-prev::before {
           content: '';
-          display: block;
-          width: 26px;
-          height: 26px;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-          transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 18px;
+          height: 18px;
+          background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7'/%3E%3C/svg%3E") no-repeat center center;
+          background-size: 18px 18px;
+          transition: all 0.3s ease;
           filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         
         .project-swiper .swiper-button-prev::before {
-          transform: rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
         }
         
         .project-swiper .swiper-button-next:hover::before,
         .project-swiper .swiper-button-prev:hover::before {
-          transform: scale(1.15);
-          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+          transform: translate(-50%, -50%) scale(1.1);
+          filter: drop-shadow(0 4px 8px rgba(249, 115, 22, 0.3));
         }
         
         .project-swiper .swiper-button-prev:hover::before {
-          transform: rotate(180deg) scale(1.15);
+          transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
         }
         
         .project-swiper .swiper-button-disabled {
           opacity: 0.3;
           cursor: not-allowed;
+          pointer-events: none;
         }
         
         /* Responsive optimizations */
         @media (max-width: 1024px) {
+          .project-swiper .swiper-button-next,
+          .project-swiper .swiper-button-prev {
+            width: 45px;
+            height: 45px;
+            border-radius: 18px;
+          }
+          
           .project-swiper .swiper-button-next {
             right: 15px;
-            width: 50px;
-            height: 50px;
           }
           
           .project-swiper .swiper-button-prev {
             left: 15px;
-            width: 50px;
-            height: 50px;
           }
           
           .project-swiper .swiper-button-next::before,
           .project-swiper .swiper-button-prev::before {
-            width: 22px;
-            height: 22px;
+            width: 16px;
+            height: 16px;
           }
           
           .project-swiper .swiper-slide-active {
@@ -430,9 +444,9 @@ export default function ProjectCarousel() {
         @media (max-width: 768px) {
           .project-swiper .swiper-button-next,
           .project-swiper .swiper-button-prev {
-            width: 45px;
-            height: 45px;
-            border-radius: 14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 16px;
           }
           
           .project-swiper .swiper-button-next {
@@ -445,13 +459,13 @@ export default function ProjectCarousel() {
           
           .project-swiper .swiper-button-next:hover,
           .project-swiper .swiper-button-prev:hover {
-            transform: translateY(-50%) scale(1.06);
+            transform: translateY(-50%) scale(1.05);
           }
           
           .project-swiper .swiper-button-next::before,
           .project-swiper .swiper-button-prev::before {
-            width: 20px;
-            height: 20px;
+            width: 14px;
+            height: 14px;
           }
           
           .project-swiper .swiper-slide {
@@ -506,9 +520,9 @@ export default function ProjectCarousel() {
         @media (max-width: 480px) {
           .project-swiper .swiper-button-next,
           .project-swiper .swiper-button-prev {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 35px;
+            height: 35px;
+            border-radius: 14px;
           }
           
           .project-swiper .swiper-button-next {
@@ -521,8 +535,8 @@ export default function ProjectCarousel() {
           
           .project-swiper .swiper-button-next::before,
           .project-swiper .swiper-button-prev::before {
-            width: 18px;
-            height: 18px;
+            width: 12px;
+            height: 12px;
           }
           
           .project-swiper {
@@ -569,14 +583,15 @@ export default function ProjectCarousel() {
           
           .project-swiper .swiper-button-next,
           .project-swiper .swiper-button-prev {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
+            border-radius: 12px;
           }
           
           .project-swiper .swiper-button-next::before,
           .project-swiper .swiper-button-prev::before {
-            width: 16px;
-            height: 16px;
+            width: 10px;
+            height: 10px;
           }
           
           .project-swiper {

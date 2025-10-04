@@ -126,8 +126,7 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* Affichage adaptatif des projets */}
-        
+
         {/* Desktop : Carrousel + Grille */}
         <div className="hidden md:block">
           <ProjectCarousel />
