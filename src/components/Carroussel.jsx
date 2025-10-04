@@ -69,7 +69,7 @@ function ProjectCard({ project }) {
       <img
         src={project.image}
         alt={project.title}
-        className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+        className="w-full h-64 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
       />
       
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 flex flex-col justify-end z-20">
@@ -189,12 +189,17 @@ export default function ProjectCarousel() {
             breakpoints={{
               320: {
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 20,
+                centeredSlides: true,
+              },
+              480: {
+                slidesPerView: 1,
+                spaceBetween: 20,
                 centeredSlides: true,
               },
               640: {
-                slidesPerView: 1.5,
-                spaceBetween: 15,
+                slidesPerView: 1,
+                spaceBetween: 20,
                 centeredSlides: true,
               },
               768: {
@@ -246,7 +251,7 @@ export default function ProjectCarousel() {
         
         .project-swiper .swiper-slide-active {
           opacity: 1;
-          transform: scale(1.15) translateY(0);
+          transform: scale(1.22) translateY(0);
           z-index: 20;
           filter: blur(0);
           pointer-events: auto;
@@ -273,7 +278,7 @@ export default function ProjectCarousel() {
         }
         
         .project-swiper .swiper-slide-active:hover {
-          transform: scale(1.18) translateY(-5px);
+          transform: scale(1.28) translateY(-5px);
           transition: all 0.6s ease;
           cursor: pointer;
         }
@@ -285,7 +290,7 @@ export default function ProjectCarousel() {
         
         .project-swiper .swiper-slide-duplicate-active {
           opacity: 1;
-          transform: scale(1.15) translateY(0);
+          transform: scale(1.25) translateY(0);
           z-index: 20;
           filter: blur(0);
           transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -450,16 +455,51 @@ export default function ProjectCarousel() {
           }
           
           .project-swiper .swiper-slide {
-            transform: scale(0.85) translateY(15px);
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
           }
           
           .project-swiper .swiper-slide-active {
-            transform: scale(1.05) translateY(0);
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
           }
           
           .project-swiper .swiper-slide-next,
           .project-swiper .swiper-slide-prev {
-            transform: scale(0.9) translateY(8px);
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-active:hover {
+            transform: scale(1.05) translateY(-3px);
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .project-swiper {
+            padding: 20px 10px;
+          }
+          
+          .project-swiper .swiper-slide {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-active {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-next,
+          .project-swiper .swiper-slide-prev {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+            filter: none;
           }
         }
         
@@ -486,17 +526,61 @@ export default function ProjectCarousel() {
           }
           
           .project-swiper {
-            padding: 10px 0;
+            padding: 20px 10px;
+            margin: 0 -10px;
           }
           
           .project-swiper .swiper-slide {
-            transform: scale(0.9);
-            opacity: 0.7;
+            transform: scale(1);
+            opacity: 1;
+            filter: none;
           }
           
           .project-swiper .swiper-slide-active {
             transform: scale(1);
             opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-next,
+          .project-swiper .swiper-slide-prev {
+            transform: scale(1);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-active:hover {
+            transform: scale(1.02);
+          }
+        }
+        
+        @media (max-width: 380px) {
+          .project-swiper .swiper-slide {
+            transform: scale(1);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-slide-active {
+            transform: scale(1);
+            opacity: 1;
+            filter: none;
+          }
+          
+          .project-swiper .swiper-button-next,
+          .project-swiper .swiper-button-prev {
+            width: 35px;
+            height: 35px;
+          }
+          
+          .project-swiper .swiper-button-next::before,
+          .project-swiper .swiper-button-prev::before {
+            width: 16px;
+            height: 16px;
+          }
+          
+          .project-swiper {
+            padding: 15px 5px;
           }
         }
         

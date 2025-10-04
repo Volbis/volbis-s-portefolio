@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import ProjectCarousel from '../components/Carroussel';
 import profile from '../assets/images/Laye.png';
+import GridProjects from '../components/gridProjects';
 
 export default function Projects() {
   const scrollToSection = (sectionId) => {
@@ -125,8 +126,18 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* Carrousel des projets */}
-        <ProjectCarousel />
+        {/* Affichage adaptatif des projets */}
+        
+        {/* Desktop : Carrousel + Grille */}
+        <div className="hidden md:block">
+          <ProjectCarousel />
+          <GridProjects />
+        </div>
+
+        {/* Mobile : Grille simple uniquement */}
+        <div className="block md:hidden">
+          <GridProjects />
+        </div>
 
         {/* Call to Action */}
         <motion.div
