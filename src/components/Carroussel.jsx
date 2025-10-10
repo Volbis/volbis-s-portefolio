@@ -142,7 +142,7 @@ export default function ProjectCarousel() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            🚀 Mes Projets
+            🚀 Ma sélection de projets
           </motion.h2>
           <motion.p
             className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed"
