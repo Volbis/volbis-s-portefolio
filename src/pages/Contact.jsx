@@ -33,37 +33,63 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      icon: "📧",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      ),
       title: "Email",
       value: "contact@volbis.dev",
-      href: "mailto:contact@volbis.dev"
+      href: "mailto:contact@volbis.dev",
+      gradient: "from-blue-500 to-cyan-500"
     },
     {
-      icon: "📱",
-      title: "Téléphone",
-      value: "+33 6 12 34 56 78",
-      href: "tel:+33612345678"
-    },
-    {
-      icon: "💼",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect width="4" height="12" x="2" y="9"/>
+          <circle cx="4" cy="4" r="2"/>
+        </svg>
+      ),
       title: "LinkedIn",
       value: "linkedin.com/in/volbis",
-      href: "https://linkedin.com/in/volbis"
+      href: "https://linkedin.com/in/volbis",
+      gradient: "from-blue-600 to-blue-400"
     },
     {
-      icon: "🐙",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+          <path d="M9 18c-4.51 2-5-2-7-2"/>
+        </svg>
+      ),
       title: "GitHub",
       value: "github.com/volbis",
-      href: "https://github.com/volbis"
+      href: "https://github.com/volbis",
+      gradient: "from-gray-600 to-gray-400"
+    },
+    {
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      ),
+      title: "Téléphone",
+      value: "+33 6 12 34 56 78",
+      href: "tel:+33612345678",
+      gradient: "from-green-500 to-emerald-500"
     }
   ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15,
+        delayChildren: 0.1
       }
     }
   };
@@ -73,51 +99,66 @@ export default function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 }
+      transition: { 
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1]
+      }
     }
   };
 
   return (
-    <div className="min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center mb-16"
-        >
-          <motion.h1 
-            variants={itemVariants}
-            className="text-4xl md:text-6xl font-bold mb-6"
+    <div className="min-h-screen py-10 px-4 md:px-6 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center mb-20"
           >
-            Travaillons <span className="text-gradient">Ensemble</span>
-          </motion.h1>
-          <motion.p 
-            variants={itemVariants}
-            className="text-xl text-dark-secondary max-w-2xl mx-auto leading-relaxed"
-          >
-            Vous avez un projet en tête ? Une idée à développer ? 
-            N'hésitez pas à me contacter pour en discuter !
-          </motion.p>
-        </motion.div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="inline-block mb-6"
+            >
+              <div className="relative">
+                <div className="absolute -inset-3 rounded-full blur-xl opacity-15 bg-gradient-to-r from-blue-500/20 to-pink-500/20" />
+                <h1 className="relative text-5xl md:text-7xl font-black text-white">
+            Travaillons Ensemble
+                </h1>
+              </div>
+            </motion.div>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+            >
+              Vous avez un projet en tête ? Une idée à développer ?<br/>
+              <span className="text-white/80">N'hésitez pas à me contacter pour en discuter.</span>
+            </motion.p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Methods */}
+          <div className="flex justify-center">
+            
+            {/* Section Coordonnées - Glass Cards Centrée */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
-            className="space-y-8"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-8 max-w-3xl w-full"
           >
             <motion.h2 
               variants={itemVariants}
-              className="text-2xl font-bold text-dark-primary mb-6"
+              className="text-2xl md:text-3xl font-bold text-white mb-8 text-center"
             >
               Mes coordonnées
             </motion.h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactMethods.map((method, index) => (
                 <motion.a
                   key={method.title}
@@ -125,171 +166,139 @@ export default function Contact() {
                   target={method.href.startsWith('http') ? '_blank' : undefined}
                   rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   variants={itemVariants}
-                  className="group p-6 bg-dark-background/30 backdrop-blur-sm border border-dark-secondary/20 rounded-xl hover:border-dark-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative"
                 >
-                  <div className="flex items-center space-x-4">
-                    <div className="text-3xl group-hover:scale-110 transition-transform duration-300">
-                      {method.icon}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-dark-text group-hover:text-dark-primary transition-colors duration-300">
-                        {method.title}
-                      </h3>
-                      <p className="text-dark-secondary text-sm">
-                        {method.value}
-                      </p>
+                  {/* Lueur de fond au survol */}
+                  <div 
+                    className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-xl bg-gradient-to-r ${method.gradient}`}
+                  />
+                  
+                  {/* Card principale avec effet glass */}
+                  <div 
+                    className="relative p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20"
+                    style={{
+                      boxShadow: "inset 0 0.5px hsla(0, 0%, 100%, 0.6), inset 0 -1px 2px 0 hsla(0, 0%, 0%, 0.8), 0px 4px 20px -4px hsla(0, 0%, 0%, 0.3)"
+                    }}
+                  >
+                    <div className="flex items-center gap-4">
+                      {/* Icône avec gradient dans un cercle glass */}
+                      <div 
+                        className="p-3 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 group-hover:scale-110 transition-all duration-300"
+                        style={{
+                          boxShadow: "inset 0 0.5px hsla(0, 0%, 100%, 0.3), inset 0 -1px 1px 0 hsla(0, 0%, 0%, 0.5)"
+                        }}
+                      >
+                        <div className={`w-6 h-6`}>
+                          {React.cloneElement(method.icon, { 
+                            className: `w-6 h-6`,
+                            style: { 
+                              stroke: `url(#gradient-${index})`,
+                            }
+                          })}
+                          <svg width="0" height="0">
+                            <defs>
+                              <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                                {method.gradient === 'from-blue-500 to-cyan-500' && (
+                                  <>
+                                    <stop offset="0%" stopColor="rgb(59, 130, 246)" />
+                                    <stop offset="100%" stopColor="rgb(6, 182, 212)" />
+                                  </>
+                                )}
+                                {method.gradient === 'from-blue-600 to-blue-400' && (
+                                  <>
+                                    <stop offset="0%" stopColor="rgb(37, 99, 235)" />
+                                    <stop offset="100%" stopColor="rgb(96, 165, 250)" />
+                                  </>
+                                )}
+                                {method.gradient === 'from-gray-600 to-gray-400' && (
+                                  <>
+                                    <stop offset="0%" stopColor="rgb(75, 85, 99)" />
+                                    <stop offset="100%" stopColor="rgb(156, 163, 175)" />
+                                  </>
+                                )}
+                                {method.gradient === 'from-green-500 to-emerald-500' && (
+                                  <>
+                                    <stop offset="0%" stopColor="rgb(34, 197, 94)" />
+                                    <stop offset="100%" stopColor="rgb(16, 185, 129)" />
+                                  </>
+                                )}
+                              </linearGradient>
+                            </defs>
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Texte */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-sm font-semibold text-white/90 mb-0.5 group-hover:text-white transition-colors">
+                          {method.title}
+                        </h3>
+                        <p className="text-xs text-white/50 group-hover:text-white/70 transition-colors truncate">
+                          {method.value}
+                        </p>
+                      </div>
+
+                      {/* Flèche */}
+                      <motion.div
+                        className="text-white/30 group-hover:text-white/70 transition-colors duration-300"
+                        initial={{ x: 0 }}
+                        animate={{ x: 0 }}
+                        whileHover={{ x: 3 }}
+                      >
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                      </motion.div>
                     </div>
                   </div>
                 </motion.a>
               ))}
             </div>
 
-            {/* Additional Info */}
+            {/* Info temps de réponse - Card glass */}
             <motion.div 
               variants={itemVariants}
-              className="mt-8 p-6 bg-dark-background/20 backdrop-blur-sm border border-dark-secondary/20 rounded-xl"
+              className="relative group mt-8"
             >
-              <h3 className="text-lg font-semibold text-dark-primary mb-3">
-                Temps de réponse
-              </h3>
-              <p className="text-dark-secondary">
-                Je réponds généralement dans les <span className="text-dark-primary font-semibold">24 heures</span>. 
-                Pour les projets urgents, n'hésitez pas à me contacter directement par téléphone.
-              </p>
+              <div className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 blur-xl bg-gradient-to-r from-emerald-500/30 to-teal-500/30" />
+              
+              <div 
+                className="relative p-5 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 group-hover:bg-white/10"
+                style={{
+                  boxShadow: "inset 0 0.5px hsla(0, 0%, 100%, 0.6), inset 0 -1px 2px 0 hsla(0, 0%, 0%, 0.8), 0px 4px 20px -4px hsla(0, 0%, 0%, 0.3)"
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div 
+                    className="p-2.5 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20"
+                    style={{
+                      boxShadow: "inset 0 0.5px hsla(120, 60%, 50%, 0.3), inset 0 -1px 1px 0 hsla(0, 0%, 0%, 0.5)"
+                    }}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-400">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 6v6l4 2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-base font-semibold text-white mb-1.5">
+                      Temps de réponse
+                    </h3>
+                    <p className="text-sm text-white/60 leading-relaxed">
+                      Je réponds généralement dans les <span className="text-emerald-400 font-semibold">24 heures</span>. 
+                      Pour les projets urgents, contactez-moi directement par téléphone.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.h2 
-              variants={itemVariants}
-              className="text-2xl font-bold text-dark-primary mb-6"
-            >
-              Envoyez-moi un message
-            </motion.h2>
-
-            <motion.form 
-              onSubmit={handleSubmit}
-              variants={itemVariants}
-              className="space-y-6"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-dark-text mb-2">
-                    Nom complet
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-dark-background/50 border border-dark-secondary/30 rounded-lg focus:border-dark-primary focus:outline-none transition-colors duration-300 text-dark-text"
-                    placeholder="Votre nom"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-dark-text mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-dark-background/50 border border-dark-secondary/30 rounded-lg focus:border-dark-primary focus:outline-none transition-colors duration-300 text-dark-text"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-dark-text mb-2">
-                  Sujet
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-dark-background/50 border border-dark-secondary/30 rounded-lg focus:border-dark-primary focus:outline-none transition-colors duration-300 text-dark-text"
-                  placeholder="De quoi souhaitez-vous parler ?"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-dark-text mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-dark-background/50 border border-dark-secondary/30 rounded-lg focus:border-dark-primary focus:outline-none transition-colors duration-300 text-dark-text resize-none"
-                  placeholder="Décrivez votre projet ou votre demande..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-dark-primary text-dark-background font-bold py-4 px-6 rounded-lg hover:bg-dark-accent transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center justify-center space-x-2">
-                    <div className="w-5 h-5 border-2 border-dark-background border-t-transparent rounded-full animate-spin" />
-                    <span>Envoi en cours...</span>
-                  </div>
-                ) : (
-                  'Envoyer le message'
-                )}
-              </motion.button>
-            </motion.form>
-          </motion.div>
         </div>
 
-        {/* Success Modal */}
-        <Dialog.Root open={showSuccess} onOpenChange={setShowSuccess}>
-          <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark-background border border-dark-secondary/20 p-8 rounded-2xl shadow-2xl z-50 max-w-md w-full mx-4">
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="text-center"
-            >
-              <div className="text-6xl mb-4">✅</div>
-              <h3 className="text-2xl font-bold text-dark-primary mb-4">
-                Message envoyé !
-              </h3>
-              <p className="text-dark-secondary mb-6">
-                Merci pour votre message. Je vous répondrai dans les plus brefs délais.
-              </p>
-              <button
-                onClick={() => setShowSuccess(false)}
-                className="bg-dark-primary text-dark-background font-bold py-3 px-6 rounded-lg hover:bg-dark-accent transition-all duration-300"
-              >
-                Fermer
-              </button>
-            </motion.div>
-          </Dialog.Content>
-        </Dialog.Root>
+
       </div>
     </div>
   );

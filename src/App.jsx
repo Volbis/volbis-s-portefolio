@@ -32,15 +32,15 @@ const App = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-motion-gray-800 bg-motion-darker">
-        <div className="max-w-7xl mx-auto px-6 py-12">
+      <footer className="border-motion-gray-800">
+        <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-gradient-motion text-xl font-bold">
-              Volbis
+            <div className="text-xl font-bold">
+              ® volbis & code
             </div>
             
             <div className="flex items-center gap-6 text-sm text-motion-gray-400">
-              <span>© 2024 Volbis. All rights reserved.</span>
+              <span>2024 Albert Coulibaly. All rights reserved.</span>
               <div className="flex items-center gap-4">
                 <motion.a 
                   href="#" 
@@ -57,11 +57,11 @@ const App = () => {
                   LinkedIn
                 </motion.a>
                 <motion.a 
-                  href="#" 
+                  href="https://www.youtube.com/@volbiss" 
                   className="hover:text-white transition-colors"
                   whileHover={{ scale: 1.05 }}
                 >
-                  Twitter
+                  Youtube
                 </motion.a>
               </div>
             </div>

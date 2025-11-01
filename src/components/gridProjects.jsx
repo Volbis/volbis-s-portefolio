@@ -113,29 +113,21 @@ function ProjectCard({ project }) {
 
 export default function GridProjects() {
   return (
-    <section className="py-12 md:py-20 text-white relative">
+    <section className="py-12 md:py-2 text-white relative">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-1"
         >
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent md:hidden"
-          >
-            � Mes Projets
-          </motion.h2>
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent hidden md:block"
           >
-            📂 Tous mes Projets
+            <span className="text-white">📂</span> Tous mes Projets
           </motion.h2>
-          <motion.p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed md:hidden">
-            Une sélection de projets innovants qui démontrent mes compétences techniques et ma créativité.
-          </motion.p>
-          <motion.p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed hidden md:block">
+          <motion.p className="text-gray-300 h-28 text-lg max-w-2xl mx-auto leading-relaxed hidden md:block">
             Une présentation complète de tous mes projets en disposition grille.
           </motion.p>
         </motion.div>

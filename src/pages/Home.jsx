@@ -231,7 +231,7 @@ export default function Home() {
         {/* Badge */}
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center mt-44 gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 mb-8 sm:mb-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs sm:text-sm text-gray-300 relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
+          className="inline-flex items-center mt-44 gap-2 sm:gap-3 px-4 sm:px-6 py-6 sm:py-3 mb-8 sm:mb-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-xs sm:text-sm text-gray-300 relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105"
           style={{
             boxShadow: "inset 0 0.5px hsl(0, 0%, 100%), inset 0 -1px 2px 0 hsl(0, 0%, 0%), 0px 4px 10px -4px hsla(0, 0%, 0%, 0.3)"
           }}
@@ -283,10 +283,10 @@ export default function Home() {
           variants={itemVariants}
           className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold leading-tight mb-6 sm:mb-8 tracking-tight px-2 sm:px-0"
         >
-          <span className="block text-xl text-white"> Hey, moi c'est</span>
+          <span className="block mb-4 text-xl text-white"> Hey, moi c'est</span>
           <div className="relative inline-block">
             <motion.span 
-              className="text-gray-100 font-semibold text-2xl bg-gradient-to-r from-gray-200 via-white to-gray-200 bg-clip-text text-transparent font-eagle relative z-10"
+              className="text-gray-100 font-semibold text-md bg-gradient-to-r from-gray-200 via-white to-gray-200 bg-clip-text text-transparent font-eagle relative z-10"
               initial={{ opacity: 0, y: 30, rotateX: -30 }}
               animate={{ opacity: 1, y: 0, rotateX: 0 }}
               transition={{ 
@@ -371,7 +371,7 @@ export default function Home() {
               filter: "brightness(1.1)"
             }}
           >
-            Software Engineer
+            Software Developer
             <motion.div
               className="absolute -bottom-1 left-0 h-0.5 opacity-60"
               style={{ 

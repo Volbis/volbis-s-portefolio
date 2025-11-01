@@ -110,14 +110,11 @@ return (
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-center mb-16"
+                className="text-center mb-4"
             >
-                <motion.h1 
-                    variants={itemVariants}
-                    className="text-4xl md:text-6xl font-bold mb-6"
-                >
-                    Mes <span className="text-gradient">Projets</span>
-                </motion.h1>
+              <h1 className="relative py-10 text-5xl md:text-7xl font-black bg-clip-text text-white ">
+                Mes Projets
+              </h1>
                 <motion.p 
                     variants={itemVariants}
                     className="text-lg text-dark-secondary max-w-2xl mx-auto leading-relaxed"
