@@ -29,7 +29,7 @@ export default function Contact() {
     setIsSubmitting(false);
     setShowSuccess(true);
     setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  }
 
   const contactMethods = [
     {
@@ -53,8 +53,8 @@ export default function Contact() {
         </svg>
       ),
       title: "LinkedIn",
-      value: "linkedin.com/in/volbis",
-      href: "https://linkedin.com/in/volbis",
+      value: "linkedin.com/in/albert-coulibaly",
+      href: "https://www.linkedin.com/in/albert-coulibaly-2789a5324/",
       gradient: "from-blue-600 to-blue-400"
     },
     {
