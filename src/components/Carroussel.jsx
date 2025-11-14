@@ -3,55 +3,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
+import { getFeaturedProjects } from "../data/projects";
+import ProjectModal from "./ProjectModal";
+import { useState } from "react";
+import EyeIcon from "../assets/eye.svg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 
-const projects = [
-  {
-    title: "Crypto Dashboard",
-    description: "Un dashboard moderne avec suivi en temps réel des cryptomonnaies et analyses prédictives.",
-    image: "https://picsum.photos/id/1015/800/500",
-    github: "#",
-    demo: "#",
-    tech: ["React", "Tailwind", "Web3", "Chart.js"],
-  },
-  {
-    title: "AcadHub",
-    description: "Application de gestion académique complète avec Qt et base de données optimisée.",
-    image: "https://picsum.photos/id/1016/800/500",
-    github: "#",
-    demo: "#",
-    tech: ["Qt", "C++", "SQLite", "QML"],
-  },
-  {
-    title: "ReproConnect",
-    description: "Application santé reproductive intelligente avec suivi personnalisé et notifications.",
-    image: "https://picsum.photos/id/1018/800/500",
-    github: "#",
-    demo: "#",
-    tech: ["Python", "Flask", "MySQL", "AI"],
-  },
-  {
-    title: "E-Commerce Platform",
-    description: "Plateforme e-commerce moderne avec panier intelligent et paiements sécurisés.",
-    image: "https://picsum.photos/id/1019/800/500",
-    github: "#",
-    demo: "#",
-    tech: ["React", "Node.js", "Stripe", "MongoDB"],
-  },
-  {
-    title: "Task Manager Pro",
-    description: "Gestionnaire de tâches collaboratif avec drag & drop et synchronisation temps réel.",
-    image: "https://picsum.photos/id/1020/800/500",
-    github: "#",
-    demo: "#",
-    tech: ["Vue.js", "Socket.io", "PostgreSQL", "Redis"],
-  },
-];
+const projects = getFeaturedProjects();
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onClick }) {
   return (
     <motion.div
       whileHover={{ 
@@ -98,26 +61,15 @@ function ProjectCard({ project }) {
           </div>
           
           <div className="flex gap-3">
-            <motion.a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-white/10 text-white text-sm rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20"
+            <motion.button
+              onClick={onClick}
+              className="px-2 py-1 bg-white/10 backdrop-blur-md text-white text-sm rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20 flex items-center gap-2 cursor-pointer shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Code
-            </motion.a>
-            <motion.a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(249, 115, 22, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Démo
-            </motion.a>
+              <img src={EyeIcon} alt="eye" width="15" height="15" className="inline-block brightness-0 invert" />
+              Voir le projet
+            </motion.button>
           </div>
         </motion.div>
       </div>
@@ -126,6 +78,31 @@ function ProjectCard({ project }) {
 }
 
 export default function ProjectCarousel() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
+
+  const handleNext = () => {
+    const currentIndex = projects.findIndex((p) => p.id === selectedProject.id);
+    const nextIndex = (currentIndex + 1) % projects.length;
+    setSelectedProject(projects[nextIndex]);
+  };
+
+  const handlePrevious = () => {
+    const currentIndex = projects.findIndex((p) => p.id === selectedProject.id);
+    const previousIndex = (currentIndex - 1 + projects.length) % projects.length;
+    setSelectedProject(projects[previousIndex]);
+  };
+
   return (
     <section className="py-20 text-white relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -163,7 +140,7 @@ export default function ProjectCarousel() {
                 strokeWidth="0.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-              />
+              /> 
             </svg>
             Ma sélection de projets
           </motion.h2>
@@ -245,11 +222,20 @@ export default function ProjectCarousel() {
           >
             {projects.map((project, index) => (
               <SwiperSlide key={index} className="!h-auto">
-                <ProjectCard project={project} />
+                <ProjectCard project={project} onClick={() => openModal(project)} />
               </SwiperSlide>
             ))}
           </Swiper>
         </motion.div>
+
+        {/* Modal */}
+        <ProjectModal
+          project={selectedProject}
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onNext={handleNext}
+          onPrevious={handlePrevious}
+        />
       </div>
 
       {/* Styles CSS optimisés pour la carte centrale dominante */}

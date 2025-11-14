@@ -40,6 +40,7 @@ return (
         <div className="max-w-7xl mx-auto">
             {/* Image de profil */}
             <motion.div
+                id="profile"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -126,7 +127,7 @@ return (
 
             {/* Desktop : Carrousel + Grille */}
             <div className="hidden md:block">
-                <ProjectCarousel />
+                <ProjectCarousel /> 
                 <GridProjects />
             </div>
 

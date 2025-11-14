@@ -40,8 +40,8 @@ export default function Contact() {
         </svg>
       ),
       title: "Email",
-      value: "contact@volbis.dev",
-      href: "mailto:contact@volbis.dev",
+      value: "coulibalynahouoalbert@gmail.com",
+      href: "mailto:coulibalynahouoalbert@gmail.com",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
@@ -76,8 +76,8 @@ export default function Contact() {
         </svg>
       ),
       title: "Téléphone",
-      value: "+33 6 12 34 56 78",
-      href: "tel:+33612345678",
+      value: "+225 0757406710",
+      href: "tel:+2250757406710",
       gradient: "from-green-500 to-emerald-500"
     }
   ];
