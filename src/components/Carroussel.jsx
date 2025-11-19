@@ -20,7 +20,7 @@ function ProjectIllustration({ project }) {
     "ParkoNova": {
       gradient: "from-blue-500 via-cyan-500 to-teal-500",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect width="18" height="18" x="3" y="3" rx="2"/>
           <path d="M9 8h6"/>
           <path d="M9 12h6"/>
@@ -32,7 +32,7 @@ function ProjectIllustration({ project }) {
     "Supermarket": {
       gradient: "from-orange-500 via-amber-500 to-yellow-500",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="8" cy="21" r="1"/>
           <circle cx="19" cy="21" r="1"/>
           <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
@@ -43,7 +43,7 @@ function ProjectIllustration({ project }) {
     "GL Bot": {
       gradient: "from-purple-500 via-pink-500 to-rose-500",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 8V4H8"/>
           <rect width="16" height="12" x="4" y="8" rx="2"/>
           <path d="M2 14h2"/>
@@ -57,7 +57,7 @@ function ProjectIllustration({ project }) {
     "Abia Poubelle": {
       gradient: "from-green-500 via-emerald-500 to-teal-500",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 6h18"/>
           <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
           <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
@@ -88,15 +88,17 @@ function ProjectIllustration({ project }) {
       }}></div>
 
       {/* Icône principale */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute top-6 right-6">
         <motion.div
           className="text-white drop-shadow-2xl"
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 1.1, rotate: 5 }}
+          initial={{ scale: 0.8, opacity: 0, x: 20, y: -20 }}
+          animate={{ scale: 1, opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          whileHover={{ scale: 1.15, rotate: 5, transition: { duration: 0.3 } }}
         >
-          {config.icon}
+          <div className="scale-100">
+            {config.icon}
+          </div>
         </motion.div>
       </div>
 
