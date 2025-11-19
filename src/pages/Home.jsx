@@ -75,7 +75,7 @@ export default function Home() {
         </svg>
       ),
       external: true,
-      url: 'https://linkedin.com/in/votre-profil'
+      url: 'https://www.linkedin.com/in/albert-coulibaly-2789a5324/'
     },
     { 
       id: 'github', 
@@ -87,7 +87,7 @@ export default function Home() {
         </svg>
       ),
       external: true,
-      url: 'https://github.com/votre-profil'
+      url: 'https://github.com/volbis'
     }
   ];
 
