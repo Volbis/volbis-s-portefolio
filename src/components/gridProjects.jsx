@@ -7,6 +7,199 @@ import ProjectModal from "./ProjectModal";
 
 const projects = getAllProjects();
 
+// Illustrations personnalisées pour chaque projet
+function ProjectIllustration({ project }) {
+  const illustrations = {
+    "ParkoNova": {
+      gradient: "from-blue-500 via-cyan-500 to-teal-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2"/>
+          <path d="M9 8h6"/>
+          <path d="M9 12h6"/>
+          <path d="M9 16h6"/>
+        </svg>
+      ),
+      shapes: <><circle cx="20%" cy="20%" r="60" fill="white" opacity="0.1"/><circle cx="80%" cy="80%" r="40" fill="white" opacity="0.05"/></>
+    },
+    "Supermarket": {
+      gradient: "from-orange-500 via-amber-500 to-yellow-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="8" cy="21" r="1"/>
+          <circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+      ),
+      shapes: <><rect x="10%" y="15%" width="80" height="80" rx="10" fill="white" opacity="0.08" transform="rotate(15)"/><circle cx="70%" cy="30%" r="50" fill="white" opacity="0.05"/></>
+    },
+    "GL Bot": {
+      gradient: "from-purple-500 via-pink-500 to-rose-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8V4H8"/>
+          <rect width="16" height="12" x="4" y="8" rx="2"/>
+          <path d="M2 14h2"/>
+          <path d="M20 14h2"/>
+          <path d="M15 13v2"/>
+          <path d="M9 13v2"/>
+        </svg>
+      ),
+      shapes: <><polygon points="30,10 60,30 40,60 10,40" fill="white" opacity="0.06"/><circle cx="75%" cy="25%" r="45" fill="white" opacity="0.08"/></>
+    },
+    "Abia Poubelle": {
+      gradient: "from-green-500 via-emerald-500 to-teal-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 6h18"/>
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          <line x1="10" x2="10" y1="11" y2="17"/>
+          <line x1="14" x2="14" y1="11" y2="17"/>
+        </svg>
+      ),
+      shapes: <><rect x="15%" y="20%" width="70" height="70" rx="8" fill="white" opacity="0.07"/><circle cx="25%" cy="75%" r="35" fill="white" opacity="0.05"/></>
+    },
+    "Maquis Dev": {
+      gradient: "from-red-500 via-orange-500 to-amber-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+          <path d="M7 2v20"/>
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+        </svg>
+      ),
+      shapes: <><circle cx="30%" cy="30%" r="50" fill="white" opacity="0.08"/><rect x="60%" y="50%" width="60" height="60" rx="8" fill="white" opacity="0.05"/></>
+    },
+    "VendorrApp": {
+      gradient: "from-indigo-500 via-purple-500 to-pink-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+          <path d="M3 6h18"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+      ),
+      shapes: <><polygon points="20,20 70,25 65,70 15,65" fill="white" opacity="0.06"/><circle cx="80%" cy="20%" r="40" fill="white" opacity="0.07"/></>
+    },
+    "Climbie": {
+      gradient: "from-cyan-500 via-blue-500 to-indigo-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m18 16 4-4-4-4"/>
+          <path d="m6 8-4 4 4 4"/>
+          <path d="m14.5 4-5 16"/>
+        </svg>
+      ),
+      shapes: <><rect x="20%" y="20%" width="60" height="60" rx="10" fill="white" opacity="0.08" transform="rotate(25)"/><circle cx="70%" cy="70%" r="45" fill="white" opacity="0.05"/></>
+    },
+    "ESATIC Register": {
+      gradient: "from-violet-500 via-fuchsia-500 to-pink-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+          <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+          <path d="M10 9H8"/>
+          <path d="M16 13H8"/>
+          <path d="M16 17H8"/>
+        </svg>
+      ),
+      shapes: <><circle cx="25%" cy="25%" r="55" fill="white" opacity="0.07"/><rect x="60%" y="60%" width="70" height="70" rx="8" fill="white" opacity="0.06"/></>
+    },
+    "RestauPilot": {
+      gradient: "from-rose-500 via-red-500 to-orange-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+          <path d="M7 2v20"/>
+          <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+        </svg>
+      ),
+      shapes: <><polygon points="25,15 65,20 60,70 20,65" fill="white" opacity="0.07"/><circle cx="75%" cy="30%" r="50" fill="white" opacity="0.05"/></>
+    },
+    "SmarterCIE": {
+      gradient: "from-yellow-500 via-lime-500 to-green-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      ),
+      shapes: <><circle cx="30%" cy="70%" r="45" fill="white" opacity="0.08"/><polygon points="60,10 90,40 75,75 45,60" fill="white" opacity="0.05"/></>
+    },
+    "AI App 2": {
+      gradient: "from-slate-500 via-gray-500 to-zinc-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8V4H8"/>
+          <rect width="16" height="12" x="4" y="8" rx="2"/>
+          <path d="M2 14h2"/>
+          <path d="M20 14h2"/>
+          <path d="M15 13v2"/>
+          <path d="M9 13v2"/>
+        </svg>
+      ),
+      shapes: <><rect x="15%" y="15%" width="70" height="70" rx="10" fill="white" opacity="0.09" transform="rotate(30)"/><circle cx="75%" cy="75%" r="40" fill="white" opacity="0.06"/></>
+    },
+    "App 1 - Jeu Vidéo": {
+      gradient: "from-fuchsia-500 via-purple-500 to-indigo-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6 11h4"/>
+          <path d="M8 9v4"/>
+          <path d="M15 12h.01"/>
+          <path d="M18 10h.01"/>
+          <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/>
+        </svg>
+      ),
+      shapes: <><circle cx="25%" cy="25%" r="50" fill="white" opacity="0.08"/><circle cx="75%" cy="75%" r="60" fill="white" opacity="0.05"/></>
+    }
+  };
+
+  const config = illustrations[project.title] || {
+    gradient: "from-gray-500 via-slate-500 to-zinc-500",
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+      </svg>
+    ),
+    shapes: <circle cx="50%" cy="50%" r="50" fill="white" opacity="0.05"/>
+  };
+
+  return (
+    <div className="relative w-full h-48 md:h-64 overflow-hidden">
+      {/* Dégradé de fond */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-90`}></div>
+      
+      {/* Formes décoratives */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        {config.shapes}
+      </svg>
+
+      {/* Grille de fond */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+        backgroundSize: '20px 20px'
+      }}></div>
+
+      {/* Icône principale */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          className="text-white drop-shadow-2xl"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+        >
+          {config.icon}
+        </motion.div>
+      </div>
+
+      {/* Overlay brillant */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
+    </div>
+  );
+}
+
 function ProjectCard({ project, onClick }) {
   return (
     <motion.div
@@ -18,11 +211,7 @@ function ProjectCard({ project, onClick }) {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-      />
+      <ProjectIllustration project={project} />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 md:p-6 flex flex-col justify-end z-20">
         <h3 className="text-white text-xl font-bold mb-2 group-hover:text-orange-400 transition-colors duration-300">
@@ -56,7 +245,7 @@ function ProjectCard({ project, onClick }) {
             </svg>
             Voir le projet
           </motion.button>
-        </div> 
+        </div>  
       </div>
     </motion.div>
   );

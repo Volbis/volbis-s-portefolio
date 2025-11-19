@@ -12,7 +12,99 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 
-const projects = getFeaturedProjects();
+const projects = getFeaturedProjects(); 
+
+// Illustrations personnalisées pour chaque projet
+function ProjectIllustration({ project }) {
+  const illustrations = {
+    "ParkoNova": {
+      gradient: "from-blue-500 via-cyan-500 to-teal-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2"/>
+          <path d="M9 8h6"/>
+          <path d="M9 12h6"/>
+          <path d="M9 16h6"/>
+        </svg>
+      ),
+      shapes: <><circle cx="20%" cy="20%" r="60" fill="white" opacity="0.1"/><circle cx="80%" cy="80%" r="40" fill="white" opacity="0.05"/></>
+    },
+    "Supermarket": {
+      gradient: "from-orange-500 via-amber-500 to-yellow-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="8" cy="21" r="1"/>
+          <circle cx="19" cy="21" r="1"/>
+          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+        </svg>
+      ),
+      shapes: <><rect x="10%" y="15%" width="80" height="80" rx="10" fill="white" opacity="0.08" transform="rotate(15)"/><circle cx="70%" cy="30%" r="50" fill="white" opacity="0.05"/></>
+    },
+    "GL Bot": {
+      gradient: "from-purple-500 via-pink-500 to-rose-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8V4H8"/>
+          <rect width="16" height="12" x="4" y="8" rx="2"/>
+          <path d="M2 14h2"/>
+          <path d="M20 14h2"/>
+          <path d="M15 13v2"/>
+          <path d="M9 13v2"/>
+        </svg>
+      ),
+      shapes: <><polygon points="30,10 60,30 40,60 10,40" fill="white" opacity="0.06"/><circle cx="75%" cy="25%" r="45" fill="white" opacity="0.08"/></>
+    },
+    "Abia Poubelle": {
+      gradient: "from-green-500 via-emerald-500 to-teal-500",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 6h18"/>
+          <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+          <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+          <line x1="10" x2="10" y1="11" y2="17"/>
+          <line x1="14" x2="14" y1="11" y2="17"/>
+        </svg>
+      ),
+      shapes: <><rect x="15%" y="20%" width="70" height="70" rx="8" fill="white" opacity="0.07"/><circle cx="25%" cy="75%" r="35" fill="white" opacity="0.05"/></>
+    }
+  };
+
+  const config = illustrations[project.title] || illustrations["ParkoNova"];
+
+  return (
+    <div className="relative w-full h-64 sm:h-56 md:h-64 overflow-hidden">
+      {/* Dégradé de fond */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient} opacity-90`}></div>
+      
+      {/* Formes décoratives */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+        {config.shapes}
+      </svg>
+
+      {/* Grille de fond */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+        backgroundSize: '20px 20px'
+      }}></div>
+
+      {/* Icône principale */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          className="text-white drop-shadow-2xl"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+        >
+          {config.icon}
+        </motion.div>
+      </div>
+
+      {/* Overlay brillant */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10"></div>
+    </div>
+  );
+}
 
 function ProjectCard({ project, onClick }) {
   return (
@@ -29,11 +121,7 @@ function ProjectCard({ project, onClick }) {
     >
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
       
-      <img
-        src={project.image}
-        alt={project.title}
-        className="w-full h-64 sm:h-56 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-      />
+      <ProjectIllustration project={project} />
       
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 flex flex-col justify-end z-20">
         <motion.div
