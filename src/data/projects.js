@@ -2,23 +2,24 @@
 // featured: true = Projet phare affiché dans le carrousel
 
 export const projects = [
-  // 🌟 PROJETS PHARES (Carrousel + Grille)
-  {
+  // PROJETS PHARES (Carrousel + Grille)
+
+    {
     id: 1,
     featured: true,
-    title: "ParkoNova",
-    description: "Application desktop intelligente de gestion automatisée de parkings.",
-    fullDescription: "ParkoNova est une solution desktop qui résout les problèmes quotidiens de gestion de parkings : manque de visibilité sur les places disponibles, suivi peu fiable des entrées/sorties, absence de statistiques. Développée avec JavaFX/Maven et connectée à MySQL, l'application offre une gestion simple et automatisée des parkings en temps réel.",
-    image: "https://picsum.photos/id/1018/800/500",
+    title: "VendorrApp",
+    description: "Plateforme mobile de commerce pour vendeurs avec gestion de stock et commandes.",
+    fullDescription: "VendorrApp facilite la vie des vendeurs en leur offrant un outil complet de gestion commerciale. L'application permet de suivre les stocks en temps réel, gérer les commandes clients, et analyser les ventes avec des tableaux de bord intuitifs.",
+    image: "https://picsum.photos/id/1017/800/500",
     images: [
+      "https://picsum.photos/id/1017/800/500",
       "https://picsum.photos/id/1018/800/500",
-      "https://picsum.photos/id/1019/800/500",
-      "https://picsum.photos/id/1020/800/500"
+      "https://picsum.photos/id/1019/800/500"
     ],
-    github: "https://github.com/Volbis/ParkoNova",
+    github: "https://github.com/Volbis/VendorrApp",
     demo: null,
-    tech: ["JavaFX", "Maven", "MySQL", "Java", "POO"],
-    features: ["Visualisation en temps réel des places disponibles", "Ajout/suppression dynamique de véhicules", "Enregistrement des mouvements (entrée/sortie)", "Statistiques de gestion d'espace", "Interface graphique intuitive"],
+    tech: ["Android", "Kotlin", "MySQL", "Firebase"],
+    features: ["Gestion de stock", "Suivi des commandes", "Tableau de bord", "Base de données synchronisée"],
   },
   {
     id: 2,
@@ -44,28 +45,34 @@ export const projects = [
       "Analyse des données historiques"
     ],
   },
-  {
+    {
     id: 3,
     featured: true,
-    title: "GL Bot",
-    description: "Bot Telegram intelligent pour la gestion et le téléchargement automatisé de fichiers académiques via Google Drive.",
-    fullDescription: "GL Bot est un assistant conversationnel développé pour révolutionner l'accès aux documents académiques. Fini les recherches interminables dans les conversations ou les dossiers éparpillés ! Le bot utilise l'API Google Drive pour rechercher et télécharger n'importe quel fichier (devoirs, cours, etc.) en quelques secondes. Cette automatisation fait gagner un temps précieux et améliore considérablement l'organisation quotidienne des étudiants.",
-    image: "https://picsum.photos/id/1020/800/500",
+    title: "Climbie",
+    description: "Application full-stack de gestion hôtelière complète développée avec NestJS et Prisma ORM.",
+    fullDescription: "Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
+    image: "https://picsum.photos/id/1030/800/500",
     images: [
-      "https://picsum.photos/id/1020/800/500",
-      "https://picsum.photos/id/1015/800/500",
-      "https://picsum.photos/id/1016/800/500"
+      "https://picsum.photos/id/1030/800/500",
+      "https://picsum.photos/id/1031/800/500",
+      "https://picsum.photos/id/1032/800/500"
     ],
-    github: "https://github.com/Volbis/GL-bot",
+    github: null,
     demo: null,
-    tech: ["Python", "Telegram API", "Google Drive API", "NLP"],
+    tech: ["NestJS", "TypeScript", "Prisma ORM", "MySQL", "JWT", "REST API", "Guards", "DTOs"],
     features: [
-      "Recherche instantanée de fichiers",
-      "Téléchargement automatisé depuis Google Drive",
-      "Interface conversationnelle intuitive",
-      "Gestion intelligente des documents académiques",
-      "Gain de temps considérable",
-      "Support 24/7"
+      "Gestion complète des réservations et check-in/check-out",
+      "Système multi-hôtels pour groupes hôteliers",
+      "Gestion des chambres et hébergements (types, tarifs, disponibilités)",
+      "Système multi-utilisateurs avec rôles et permissions granulaires",
+      "Authentification JWT sécurisée avec blacklist",
+      "Gestion des stocks (commandes, livraisons, inventaire)",
+      "Upload et gestion de documents (factures, contrats)",
+      "Architecture modulaire avec plus de 30 tables",
+      "DTOs pour validation robuste des données",
+      "Guards personnalisés pour la sécurité des routes",
+      "Séparation claire des responsabilités (Controllers, Services, Repositories)",
+      "API REST complète et documentée"
     ],
   },
   {
@@ -113,21 +120,22 @@ export const projects = [
   },
   {
     id: 6,
-    featured: false,
-    title: "VendorrApp",
-    description: "Plateforme mobile de commerce pour vendeurs avec gestion de stock et commandes.",
-    fullDescription: "VendorrApp facilite la vie des vendeurs en leur offrant un outil complet de gestion commerciale. L'application permet de suivre les stocks en temps réel, gérer les commandes clients, et analyser les ventes avec des tableaux de bord intuitifs.",
-    image: "https://picsum.photos/id/1017/800/500",
+    featured: true,
+    title: "ParkoNova",
+    description: "Application desktop intelligente de gestion automatisée de parkings.",
+    fullDescription: "ParkoNova est une solution desktop qui résout les problèmes quotidiens de gestion de parkings : manque de visibilité sur les places disponibles, suivi peu fiable des entrées/sorties, absence de statistiques. Développée avec JavaFX/Maven et connectée à MySQL, l'application offre une gestion simple et automatisée des parkings en temps réel.",
+    image: "https://picsum.photos/id/1018/800/500",
     images: [
-      "https://picsum.photos/id/1017/800/500",
       "https://picsum.photos/id/1018/800/500",
-      "https://picsum.photos/id/1019/800/500"
+      "https://picsum.photos/id/1019/800/500",
+      "https://picsum.photos/id/1020/800/500"
     ],
-    github: "https://github.com/Volbis/VendorrApp",
+    github: "https://github.com/Volbis/ParkoNova",
     demo: null,
-    tech: ["Android", "Kotlin", "MySQL", "Firebase"],
-    features: ["Gestion de stock", "Suivi des commandes", "Tableau de bord", "Base de données synchronisée"],
+    tech: ["JavaFX", "Maven", "MySQL", "Java", "POO"],
+    features: ["Visualisation en temps réel des places disponibles", "Ajout/suppression dynamique de véhicules", "Enregistrement des mouvements (entrée/sortie)", "Statistiques de gestion d'espace", "Interface graphique intuitive"],
   },
+
   {
     id: 7,
     featured: false,
@@ -158,36 +166,31 @@ export const projects = [
   },
   {
     id: 8,
-    featured: false,
-    title: "Climbie",
-    description: "Application full-stack de gestion hôtelière complète développée avec NestJS et Prisma ORM.",
-    fullDescription: "Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
-    image: "https://picsum.photos/id/1030/800/500",
+    featured: true,
+    title: "GL Bot",
+    description: "Bot Telegram intelligent pour la gestion et le téléchargement automatisé de fichiers académiques via Google Drive.",
+    fullDescription: "GL Bot est un assistant conversationnel développé pour révolutionner l'accès aux documents académiques. Fini les recherches interminables dans les conversations ou les dossiers éparpillés ! Le bot utilise l'API Google Drive pour rechercher et télécharger n'importe quel fichier (devoirs, cours, etc.) en quelques secondes. Cette automatisation fait gagner un temps précieux et améliore considérablement l'organisation quotidienne des étudiants.",
+    image: "https://picsum.photos/id/1020/800/500",
     images: [
-      "https://picsum.photos/id/1030/800/500",
-      "https://picsum.photos/id/1031/800/500",
-      "https://picsum.photos/id/1032/800/500"
+      "https://picsum.photos/id/1020/800/500",
+      "https://picsum.photos/id/1015/800/500",
+      "https://picsum.photos/id/1016/800/500"
     ],
-    github: null,
+    github: "https://github.com/Volbis/GL-bot",
     demo: null,
-    tech: ["NestJS", "TypeScript", "Prisma ORM", "MySQL", "JWT", "REST API", "Guards", "DTOs"],
+    tech: ["Python", "Telegram API", "Google Drive API", "NLP"],
     features: [
-      "Gestion complète des réservations et check-in/check-out",
-      "Système multi-hôtels pour groupes hôteliers",
-      "Gestion des chambres et hébergements (types, tarifs, disponibilités)",
-      "Système multi-utilisateurs avec rôles et permissions granulaires",
-      "Authentification JWT sécurisée avec blacklist",
-      "Gestion des stocks (commandes, livraisons, inventaire)",
-      "Upload et gestion de documents (factures, contrats)",
-      "Architecture modulaire avec plus de 30 tables",
-      "DTOs pour validation robuste des données",
-      "Guards personnalisés pour la sécurité des routes",
-      "Séparation claire des responsabilités (Controllers, Services, Repositories)",
-      "API REST complète et documentée"
+      "Recherche instantanée de fichiers",
+      "Téléchargement automatisé depuis Google Drive",
+      "Interface conversationnelle intuitive",
+      "Gestion intelligente des documents académiques",
+      "Gain de temps considérable",
+      "Support 24/7"
     ],
   },
 
-  // 💻 PROJETS WEB / FULL STACK (Grille uniquement)
+
+  // PROJETS WEB / FULL STACK (Grille uniquement)
   {
     id: 9,
     featured: false,
@@ -240,7 +243,7 @@ export const projects = [
     features: ["Suivi de consommation", "Analyses IA", "Recommandations", "Graphiques interactifs"],
   },
 
-  // 🤖 PROJETS IA / BOTS (Grille uniquement)
+  // PROJETS IA / BOTS (Grille uniquement)
   {
     id: 12,
     featured: false,
@@ -259,7 +262,7 @@ export const projects = [
     features: ["Assistant IA", "Analyse de texte", "Génération de contenu", "API REST"],
   },
 
-  // 🎮 JEU VIDÉO (Grille uniquement)
+  // JEU VIDÉO (Grille uniquement)
   {
     id: 13,
     featured: false,
