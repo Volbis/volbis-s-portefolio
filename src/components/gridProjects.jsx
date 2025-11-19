@@ -82,13 +82,28 @@ function ProjectIllustration({ project }) {
       ),
       shapes: <><polygon points="20,20 70,25 65,70 15,65" fill="white" opacity="0.06"/><circle cx="80%" cy="20%" r="40" fill="white" opacity="0.07"/></>
     },
-    "Climbie": {
-      gradient: "from-cyan-500 via-blue-500 to-indigo-500",
+    "Vendor": {
+      gradient: "from-blue-600 via-indigo-600 to-purple-600",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m18 16 4-4-4-4"/>
-          <path d="m6 8-4 4 4 4"/>
-          <path d="m14.5 4-5 16"/>
+          <path d="M3 6h3"/>
+          <path d="M17 6h.01"/>
+          <rect width="18" height="12" x="3" y="4" rx="2"/>
+          <circle cx="12" cy="13" r="5"/>
+          <path d="M12 13h.01"/>
+        </svg>
+      ),
+      shapes: <><circle cx="25%" cy="75%" r="55" fill="white" opacity="0.08"/><rect x="55%" y="15%" width="75" height="75" rx="12" fill="white" opacity="0.06" transform="rotate(20)"/></>
+    },
+    "Climbie": {
+      gradient: "from-teal-600 via-emerald-600 to-green-600",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/>
+          <path d="m3 9 2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9"/>
+          <path d="M12 3v6"/>
+          <path d="M9 14h6"/>
+          <path d="M9 18h6"/>
         </svg>
       ),
       shapes: <><rect x="20%" y="20%" width="60" height="60" rx="10" fill="white" opacity="0.08" transform="rotate(25)"/><circle cx="70%" cy="70%" r="45" fill="white" opacity="0.05"/></>

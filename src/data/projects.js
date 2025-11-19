@@ -93,7 +93,7 @@ export const projects = [
     ]
   },
 
-  // 📱 PROJETS ANDROID (Grille uniquement)
+  // PROJETS ANDROID (Grille uniquement)
   {
     id: 5,
     featured: false,
@@ -131,24 +131,65 @@ export const projects = [
   {
     id: 7,
     featured: false,
-    title: "Climbie",
-    description: "Application mobile sociale pour la progression personnelle et le développement.",
-    fullDescription: "Climbie est une plateforme sociale innovante qui encourage ses utilisateurs à progresser dans leurs objectifs personnels. Inspirée du concept d'ascension, l'application propose des défis, un suivi de progression et une communauté motivante.",
+    title: "Vendor",
+    description: "Application mobile complète de gestion de station de lavage automobile avec React Native/Expo.",
+    fullDescription: "Vendor est une solution tout-en-un développée avec React Native, Expo et TypeScript pour gérer l'ensemble des opérations d'une station de lavage automobile. L'architecture scalable intègre une gestion clients avancée, un système de réservations en temps réel, un inventaire dynamique, une boutique complète avec paiement mobile intégré, ainsi qu'un portefeuille digital avec suivi financier détaillé. Cette application full-stack mobile offre une expérience utilisateur fluide et professionnelle pour les gestionnaires et clients.",
     image: "https://picsum.photos/id/1021/800/500",
     images: [
       "https://picsum.photos/id/1021/800/500",
       "https://picsum.photos/id/1020/800/500",
       "https://picsum.photos/id/1015/800/500"
     ],
-    github: "https://github.com/Volbis/Climbie",
+    github: null,
     demo: null,
-    tech: ["Android", "Kotlin", "Firebase", "Social API"],
-    features: ["Défis personnalisés", "Suivi de progression", "Réseau social", "Système de récompenses"],
+    tech: ["React Native", "TypeScript", "Expo", "Redux", "REST API", "JWT", "Mobile Payment"],
+    features: [
+      "Gestion complète des clients et profils",
+      "Système de réservations en temps réel",
+      "Inventaire dynamique et suivi des stocks",
+      "Boutique intégrée avec catalogue produits",
+      "Paiement mobile sécurisé (Mobile Money, cartes)",
+      "Portefeuille digital avec historique des transactions",
+      "Suivi financier et reporting détaillé",
+      "Notifications push pour réservations et promotions",
+      "Architecture modulaire et scalable",
+      "Interface responsive et intuitive"
+    ],
+  },
+  {
+    id: 8,
+    featured: false,
+    title: "Climbie",
+    description: "Application full-stack de gestion hôtelière complète développée avec NestJS et Prisma ORM.",
+    fullDescription: "Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
+    image: "https://picsum.photos/id/1030/800/500",
+    images: [
+      "https://picsum.photos/id/1030/800/500",
+      "https://picsum.photos/id/1031/800/500",
+      "https://picsum.photos/id/1032/800/500"
+    ],
+    github: null,
+    demo: null,
+    tech: ["NestJS", "TypeScript", "Prisma ORM", "MySQL", "JWT", "REST API", "Guards", "DTOs"],
+    features: [
+      "Gestion complète des réservations et check-in/check-out",
+      "Système multi-hôtels pour groupes hôteliers",
+      "Gestion des chambres et hébergements (types, tarifs, disponibilités)",
+      "Système multi-utilisateurs avec rôles et permissions granulaires",
+      "Authentification JWT sécurisée avec blacklist",
+      "Gestion des stocks (commandes, livraisons, inventaire)",
+      "Upload et gestion de documents (factures, contrats)",
+      "Architecture modulaire avec plus de 30 tables",
+      "DTOs pour validation robuste des données",
+      "Guards personnalisés pour la sécurité des routes",
+      "Séparation claire des responsabilités (Controllers, Services, Repositories)",
+      "API REST complète et documentée"
+    ],
   },
 
   // 💻 PROJETS WEB / FULL STACK (Grille uniquement)
   {
-    id: 8,
+    id: 9,
     featured: false,
     title: "ESATIC Register",
     description: "Système web de gestion d'inscriptions et d'étudiants pour établissement académique.",
@@ -165,7 +206,7 @@ export const projects = [
     features: ["Inscription en ligne", "Gestion des dossiers", "Suivi académique", "Dashboard admin"],
   },
   {
-    id: 9,
+    id: 10,
     featured: false,
     title: "RestauPilot",
     description: "Solution de digitalisation pour restaurants avec gestion des commandes et réservations.",
@@ -182,7 +223,7 @@ export const projects = [
     features: ["Gestion des menus", "Commandes en ligne", "Réservations", "Dashboard admin"],
   },
   {
-    id: 10,
+    id: 11,
     featured: false,
     title: "SmarterCIE",
     description: "Application web intelligente d'optimisation de la consommation électrique.",
@@ -201,7 +242,7 @@ export const projects = [
 
   // 🤖 PROJETS IA / BOTS (Grille uniquement)
   {
-    id: 11,
+    id: 12,
     featured: false,
     title: "AI App 2",
     description: "Application d'intelligence artificielle pour l'assistance et l'analyse de contenu.",
@@ -220,7 +261,7 @@ export const projects = [
 
   // 🎮 JEU VIDÉO (Grille uniquement)
   {
-    id: 12,
+    id: 13,
     featured: false,
     title: "App 1 - Jeu Vidéo",
     description: "Projet de jeu mobile ou PC avec gameplay innovant et graphismes modernes.",
@@ -238,7 +279,7 @@ export const projects = [
   },
 ];
 
-// 🔍 Fonctions helper pour filtrer les projets
+// Fonctions helper pour filtrer les projets
 export const getFeaturedProjects = () => projects.filter(p => p.featured);
 export const getAllProjects = () => projects;
 export const getProjectById = (id) => projects.find(p => p.id === id);
