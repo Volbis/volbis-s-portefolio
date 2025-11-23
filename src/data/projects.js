@@ -16,6 +16,8 @@ export const projects = [
       "https://picsum.photos/id/1018/800/500",
       "https://picsum.photos/id/1019/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null, // URL YouTube si mediaType = "video"
     github: "https://github.com/Volbis/VendorrApp",
     demo: null,
     tech: ["Android", "Kotlin", "MySQL", "Firebase"],
@@ -33,6 +35,8 @@ export const projects = [
       "https://picsum.photos/id/1016/800/500",
       "https://picsum.photos/id/1018/800/500"
     ],
+    mediaType: "video", // "video" | "images" | "placeholder"
+    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Exemple - remplacez par votre vidéo
     github: null,
     demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_gestiondesstocks-daezveloppementlogiciel-activity-7390037093961428992-BW90?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["Vue.js", "Electron", "Django", "Railway", "Figma", "Git"],
@@ -57,6 +61,8 @@ export const projects = [
       "https://picsum.photos/id/1031/800/500",
       "https://picsum.photos/id/1032/800/500"
     ],
+    mediaType: "placeholder", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: null,
     demo: null,
     tech: ["NestJS", "TypeScript", "Prisma ORM", "MySQL", "JWT", "REST API", "Guards", "DTOs"],
@@ -87,6 +93,8 @@ export const projects = [
       "https://picsum.photos/id/1020/800/500",
       "https://picsum.photos/id/1015/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/Ai-app2",
     demo: null,
     tech: ["Flutter", "Arduino", "IoT", "IA", "C", "PHP", "Flask", "OpenStreetMap"],
@@ -113,6 +121,8 @@ export const projects = [
       "https://picsum.photos/id/1018/800/500",
       "https://picsum.photos/id/1019/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/maquis_dev",
     demo: null,
     tech: ["Android", "Java", "Firebase", "REST API"],
@@ -130,6 +140,8 @@ export const projects = [
       "https://picsum.photos/id/1019/800/500",
       "https://picsum.photos/id/1020/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/ParkoNova",
     demo: null,
     tech: ["JavaFX", "Maven", "MySQL", "Java", "POO"],
@@ -148,6 +160,8 @@ export const projects = [
       "https://picsum.photos/id/1020/800/500",
       "https://picsum.photos/id/1015/800/500"
     ],
+    mediaType: "placeholder", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: null,
     demo: null,
     tech: ["React Native", "TypeScript", "Expo", "Redux", "REST API", "JWT", "Mobile Payment"],
@@ -176,6 +190,8 @@ export const projects = [
       "https://picsum.photos/id/1015/800/500",
       "https://picsum.photos/id/1016/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/GL-bot",
     demo: null,
     tech: ["Python", "Telegram API", "Google Drive API", "NLP"],
@@ -203,6 +219,8 @@ export const projects = [
       "https://picsum.photos/id/1015/800/500",
       "https://picsum.photos/id/1016/800/500"
     ],
+    mediaType: "placeholder", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/Esatic-Register",
     demo: null,
     tech: ["Django", "Python", "PostgreSQL", "HTML/CSS"],
@@ -220,6 +238,8 @@ export const projects = [
       "https://picsum.photos/id/1018/800/500",
       "https://picsum.photos/id/1019/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/RestauPilot",
     demo: null,
     tech: ["Django", "React", "MySQL", "WebSocket"],
@@ -237,6 +257,8 @@ export const projects = [
       "https://picsum.photos/id/1019/800/500",
       "https://picsum.photos/id/1020/800/500"
     ],
+    mediaType: "images", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/SmarterCIE",
     demo: null,
     tech: ["Django", "React", "AI/ML", "Chart.js"],
@@ -256,6 +278,8 @@ export const projects = [
       "https://picsum.photos/id/1020/800/500",
       "https://picsum.photos/id/1015/800/500"
     ],
+    mediaType: "placeholder", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/Ai-app2",
     demo: null,
     tech: ["Python", "OpenAI API", "NLP", "Flask"],
@@ -275,6 +299,8 @@ export const projects = [
       "https://picsum.photos/id/1016/800/500",
       "https://picsum.photos/id/1018/800/500"
     ],
+    mediaType: "placeholder", // "video" | "images" | "placeholder"
+    videoUrl: null,
     github: "https://github.com/Volbis/App1-game",
     demo: null,
     tech: ["Unity", "C#", "Android SDK", "Game Design"],

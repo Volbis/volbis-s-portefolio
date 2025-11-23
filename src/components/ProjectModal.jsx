@@ -1,20 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import ProjectMediaViewer from "./ProjectMediaViewer";
 
 export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevious }) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   if (!isOpen || !project) return null;
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
-  };
-
-  const previousImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
-  };
 
   return (
     <AnimatePresence>
@@ -46,68 +36,9 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
 
             {/* Layout horizontal : Image à gauche, Contenu à droite */}
             <div className="flex flex-col lg:flex-row gap-0">
-              {/* Partie gauche - Image */}
+              {/* Partie gauche - Média (Image/Vidéo/Placeholder) */}
               <div className="lg:w-[45%] p-6 lg:p-8 flex items-center justify-center bg-gradient-to-br from-gray-800/30 to-transparent">
-                {/* Carrousel d'images - Style écran */}
-                <div className="relative w-full">
-                  {/* Cadre de l'écran */}
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-gray-800 bg-gray-900">
-                    {/* Barre supérieure de l'écran */}
-                    <div className="bg-gray-800 h-8 flex items-center px-4 gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                    
-                    {/* Image */}
-                    <div className="relative h-72 lg:h-96 bg-black">
-                      <motion.img
-                        key={currentImageIndex}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                        src={project.images[currentImageIndex]}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Navigation du carrousel */}
-                  {project.images.length > 1 && (
-                    <>
-                      <button
-                        onClick={previousImage}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="m15 18-6-6 6-6"/>
-                        </svg>
-                      </button>
-                      <button
-                        onClick={nextImage}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-full transition-all duration-300 hover:scale-110 z-10"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="m9 18 6-6-6-6"/>
-                        </svg>
-                      </button>
-
-                      {/* Indicateurs */}
-                      <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-                        {project.images.map((_, index) => (
-                          <button
-                            key={index}
-                            onClick={() => setCurrentImageIndex(index)}
-                            className={`h-2 rounded-full transition-all duration-300 ${
-                              index === currentImageIndex ? "bg-orange-500 w-8" : "bg-white/30 w-2"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
+                <ProjectMediaViewer project={project} />
               </div>
 
               {/* Partie droite - Contenu */}
