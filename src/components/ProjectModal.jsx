@@ -1,10 +1,38 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import ProjectMediaViewer from "./ProjectMediaViewer";
 
 export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevious }) {
   if (!isOpen || !project) return null;
+
+  // Empêche le scroll du body quand le modal est ouvert et restaure après fermeture
+  useEffect(() => {
+    // Only run when modal is open
+    if (!isOpen) return;
+
+    // Lock scroll but preserve scroll position
+    const scrollY = window.scrollY || window.pageYOffset;
+    const prevPosition = document.body.style.position;
+    const prevTop = document.body.style.top;
+    const prevOverflow = document.body.style.overflow;
+
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      // restore
+      document.body.style.position = prevPosition || '';
+      document.body.style.top = prevTop || '';
+      document.body.style.overflow = prevOverflow || '';
+      // restore scroll position
+      window.scrollTo(0, scrollY);
+    };
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -14,7 +42,7 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 overflow-y-auto"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -22,7 +50,7 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-gray-900 to-black rounded-3xl shadow-2xl max-w-6xl w-full my-8 overflow-hidden border border-white/10"
+            className="relative z-[10000] bg-gradient-to-br from-gray-900 to-black rounded-3xl shadow-2xl max-w-6xl w-full my-8 overflow-hidden border border-white/10"
           >
             {/* Bouton fermer */}
             <button
@@ -49,7 +77,22 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
                     {project.title}
                   </h2>
                   <p className="text-gray-300 text-base leading-relaxed">
-                    {project.fullDescription}
+                    {/** Mettre en gras les occurrences du mot CONFIDENTIEL */}
+                    {(() => {
+                      const text = project.fullDescription || "";
+                      // Split on the exact word CONFIDENTIEL (case-sensitive) and keep delimiters
+                      const parts = text.split(/(CONFIDENTIEL)/g);
+                      return parts.map((part, idx) =>
+                        part === "CONFIDENTIEL" ? (
+                          <strong key={idx} className="font-semibold text-white">
+                            {part}
+                          </strong>
+                        ) : (
+                          // preserve original text segments
+                          <span key={idx}>{part}</span>
+                        )
+                      );
+                    })()}
                   </p>
                 </div>
 

@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function ProjectMediaViewer({ project }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const containerRef = useRef(null);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
@@ -13,6 +14,21 @@ export default function ProjectMediaViewer({ project }) {
   const previousImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
+
+  // Keyboard navigation pour images (flèches gauche/droite)
+  useEffect(() => {
+    const handler = (e) => {
+      if (!project || project.mediaType !== "images") return;
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "ArrowLeft") previousImage();
+    };
+
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [project, currentImageIndex]);
+
+  // Sécurité: images par défaut
+  const images = Array.isArray(project?.images) ? project.images : [];
 
   // Fonction pour extraire l'ID de la vidéo YouTube
   const getYouTubeEmbedUrl = (url) => {
@@ -51,7 +67,7 @@ export default function ProjectMediaViewer({ project }) {
       gradient: "from-gray-500 via-slate-500 to-zinc-500",
       icon: "💼"
     };
-
+ 
     return (
       <div className="relative w-full">
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-gray-800 bg-gray-900">
@@ -101,39 +117,39 @@ export default function ProjectMediaViewer({ project }) {
     );
   }
 
-  // VIDÉO YOUTUBE
+  // VIDÉO (YouTube ou fichier direct)
   if (project.mediaType === "video" && project.videoUrl) {
     const embedUrl = getYouTubeEmbedUrl(project.videoUrl);
-    
+
     return (
-      <div className="relative w-full">
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-gray-800 bg-gray-900">
-          <div className="bg-gray-800 h-8 flex items-center px-4 gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+      <div className="w-full">
+        <div ref={containerRef} className="mx-auto rounded-xl overflow-hidden bg-neutral-900 shadow-sm border border-neutral-800">
+          {/* header minimal */}
+          <div className="h-8 bg-neutral-800 flex items-center gap-2 px-3">
+            <div className="w-2 h-2 rounded-full bg-red-400" />
+            <div className="w-2 h-2 rounded-full bg-yellow-400" />
+            <div className="w-2 h-2 rounded-full bg-green-400" />
+            <div className="ml-2 text-sm text-neutral-300 font-medium">{project.title}</div>
           </div>
-          
-          <div className="relative h-72 lg:h-96 bg-black">
+
+          <div className="flex items-center justify-center p-4 bg-black">
             {embedUrl ? (
-              <iframe
-                src={embedUrl}
-                title={project.title}
-                className="w-full h-full"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-white/60">
-                <div className="text-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto mb-2">
-                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                  </svg>
-                  <p>URL vidéo invalide</p>
-                </div>
+              <div className="w-full max-w-4xl" style={{ aspectRatio: '16/9' }}>
+                <iframe
+                  src={embedUrl}
+                  title={project.title}
+                  className="w-full h-full rounded-md"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
               </div>
+            ) : (
+              <video
+                src={project.videoUrl}
+                controls
+                className="w-full max-w-4xl h-auto rounded-md bg-black"
+              />
             )}
           </div>
         </div>
@@ -141,62 +157,64 @@ export default function ProjectMediaViewer({ project }) {
     );
   }
 
-  // CARROUSEL D'IMAGES (par défaut)
+  // CARROUSEL D'IMAGES (par défaut) - design minimaliste et responsive
   return (
-    <div className="relative w-full">
-      <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-gray-800 bg-gray-900">
-        <div className="bg-gray-800 h-8 flex items-center px-4 gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    <div className="w-full">
+      <div className="mx-auto rounded-xl overflow-hidden bg-neutral-900 shadow-sm border border-neutral-800">
+        <div className="h-8 bg-neutral-800 flex items-center gap-2 px-3">
+          <div className="w-2 h-2 rounded-full bg-red-400" />
+          <div className="w-2 h-2 rounded-full bg-yellow-400" />
+          <div className="w-2 h-2 rounded-full bg-green-400" />
+          <div className="ml-2 text-sm text-neutral-300 font-medium">{project.title}</div>
         </div>
-        
-        <div className="relative h-72 lg:h-96 bg-black">
+
+        <div className="flex items-center justify-center p-4 bg-black">
           <motion.img
             key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            src={project.images[currentImageIndex]}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.28 }}
+            src={images[currentImageIndex]}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="max-h-[60vh] w-auto max-w-full object-contain rounded-md mx-auto"
           />
         </div>
       </div>
-      
-      {/* Navigation du carrousel */}
-      {project.images.length > 1 && (
-        <>
+
+      {/* Navigation simple */}
+      {images.length > 1 && (
+        <div className="mt-3 flex items-center justify-center gap-3">
           <button
             onClick={previousImage}
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-full transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Précédent"
+            className="p-2 bg-neutral-800 rounded-full hover:scale-105 transition"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m15 18-6-6 6-6"/>
             </svg>
           </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-black/60 hover:bg-black/80 rounded-full transition-all duration-300 hover:scale-110 z-10"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-          </button>
 
-          {/* Indicateurs */}
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-            {project.images.map((_, index) => (
+          <div className="flex gap-2 items-center">
+            {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentImageIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentImageIndex ? "bg-orange-500 w-8" : "bg-white/30 w-2"
-                }`}
+                className={`h-2 rounded-full transition-all duration-200 ${index === currentImageIndex ? 'bg-orange-500 w-8' : 'bg-neutral-600 w-2'}`}
+                aria-label={`Image ${index + 1}`}
               />
             ))}
           </div>
-        </>
+
+          <button
+            onClick={nextImage}
+            aria-label="Suivant"
+            className="p-2 bg-neutral-800 rounded-full hover:scale-105 transition"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
       )}
     </div>
   );

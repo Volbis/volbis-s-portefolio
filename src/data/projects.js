@@ -1,30 +1,21 @@
+import p_maquis from '../assets/images/projects_img/maquis.jpeg';
+import p_maquis2 from '../assets/images/projects_img/maquis2.jpeg';
+import p_maquis3 from '../assets/images/projects_img/maquis3.jpeg';
+import p_maquis4 from '../assets/images/projects_img/maquis4.jpeg';
+import p_maquis5 from '../assets/images/projects_img/maquis5.jpeg';
+import p_smartci1 from '../assets/images/projects_img/smartci1.jpeg';
+import p_smartci2 from '../assets/images/projects_img/smartci2.jpeg';
+import p_smartci3 from '../assets/images/projects_img/smartci3.jpeg';
+import p_smartci4 from '../assets/images/projects_img/smartci4.jpeg';
+
 // Source centralisée de tous les projets du portfolio
 // featured: true = Projet phare affiché dans le carrousel
 
 export const projects = [
   // PROJETS PHARES (Carrousel + Grille)
 
-    {
-    id: 1,
-    featured: true,
-    title: "VendorrApp",
-    description: "Plateforme mobile de commerce pour vendeurs avec gestion de stock et commandes.",
-    fullDescription: "VendorrApp facilite la vie des vendeurs en leur offrant un outil complet de gestion commerciale. L'application permet de suivre les stocks en temps réel, gérer les commandes clients, et analyser les ventes avec des tableaux de bord intuitifs.",
-    image: "https://picsum.photos/id/1017/800/500",
-    images: [
-      "https://picsum.photos/id/1017/800/500",
-      "https://picsum.photos/id/1018/800/500",
-      "https://picsum.photos/id/1019/800/500"
-    ],
-    mediaType: "images", // "video" | "images" | "placeholder"
-    videoUrl: null, // URL YouTube si mediaType = "video"
-    github: "https://github.com/Volbis/VendorrApp",
-    demo: null,
-    tech: ["Android", "Kotlin", "MySQL", "Firebase"],
-    features: ["Gestion de stock", "Suivi des commandes", "Tableau de bord", "Base de données synchronisée"],
-  },
   {
-    id: 2,
+    id: 1,
     featured: true,
     title: "Supermarket",
     description: "Logiciel desktop de suivi automatisé, intelligent et prédictif des ressources d'un supermarché.",
@@ -36,7 +27,7 @@ export const projects = [
       "https://picsum.photos/id/1018/800/500"
     ],
     mediaType: "video", // "video" | "images" | "placeholder"
-    videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Exemple - remplacez par votre vidéo
+    videoUrl: "https://youtu.be/4ShST6OHD-8?si=SbBoZaonuASRO4hj",
     github: null,
     demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_gestiondesstocks-daezveloppementlogiciel-activity-7390037093961428992-BW90?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["Vue.js", "Electron", "Django", "Railway", "Figma", "Git"],
@@ -50,11 +41,11 @@ export const projects = [
     ],
   },
     {
-    id: 3,
+    id: 2,
     featured: true,
     title: "Climbie",
     description: "Application full-stack de gestion hôtelière complète développée avec NestJS et Prisma ORM.",
-    fullDescription: "Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
+    fullDescription: "CONFIDENTIEL: Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
     image: "https://picsum.photos/id/1030/800/500",
     images: [
       "https://picsum.photos/id/1030/800/500",
@@ -82,21 +73,17 @@ export const projects = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     featured: true,
     title: "Abia Poubelle",
     description: "Poubelle connectée et intelligente combinant IoT et IA pour révolutionner la gestion des déchets urbains.",
     fullDescription: "Abia est bien plus qu'une poubelle : c'est une solution connectée et autonome, développée par une équipe de passionné(e)s que j'ai eu l'honneur de coordonner en tant que chef d'équipe. Cette poubelle intelligente équipée de capteurs Arduino et connectée via Wi-Fi à une application mobile Flutter détecte son taux de remplissage en temps réel, alerte automatiquement les services de collecte, améliore le tri des déchets grâce à l'intelligence artificielle et sensibilise les usagers à l'écologie via une interface intuitive et éducative. Abia combine objets connectés, IA et design durable pour répondre aux limites des systèmes classiques de gestion des déchets.",
     image: "https://picsum.photos/id/1019/800/500",
-    images: [
-      "https://picsum.photos/id/1019/800/500",
-      "https://picsum.photos/id/1020/800/500",
-      "https://picsum.photos/id/1015/800/500"
-    ],
-    mediaType: "images", // "video" | "images" | "placeholder"
-    videoUrl: null,
+    images: [],
+    mediaType: "video", // "video" | "images" | "placeholder"
+    videoUrl: "https://youtu.be/dyPT4m9GyAw?si=RcrUsiXL85HGJh_J",
     github: "https://github.com/Volbis/Ai-app2",
-    demo: null,
+    demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_greentech-iot-techforgood-ugcPost-7356437624158367744-lf59?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["Flutter", "Arduino", "IoT", "IA", "C", "PHP", "Flask", "OpenStreetMap"],
     features: [
       "Détection en temps réel du taux de remplissage",
@@ -110,16 +97,18 @@ export const projects = [
 
   // PROJETS ANDROID (Grille uniquement)
   {
-    id: 5,
+    id: 4,
     featured: false,
     title: "Maquis Dev",
     description: "Application mobile Android pour la gestion et promotion de restaurants locaux.",
     fullDescription: "Maquis Dev est une solution complète destinée aux restaurateurs pour gérer leurs établissements. L'application permet de créer des menus numériques, gérer les commandes en temps réel, et promouvoir les spécialités locales auprès d'une clientèle connectée.",
     image: "https://picsum.photos/id/1016/800/500",
     images: [
-      "https://picsum.photos/id/1016/800/500",
-      "https://picsum.photos/id/1018/800/500",
-      "https://picsum.photos/id/1019/800/500"
+      p_maquis,
+      p_maquis2,
+      p_maquis3,
+      p_maquis4,
+      p_maquis5
     ],
     mediaType: "images", // "video" | "images" | "placeholder"
     videoUrl: null,
@@ -129,7 +118,7 @@ export const projects = [
     features: ["Menus numériques", "Gestion des commandes", "Promotion locale", "Interface intuitive"],
   },
   {
-    id: 6,
+    id: 5,
     featured: true,
     title: "ParkoNova",
     description: "Application desktop intelligente de gestion automatisée de parkings.",
@@ -140,19 +129,19 @@ export const projects = [
       "https://picsum.photos/id/1019/800/500",
       "https://picsum.photos/id/1020/800/500"
     ],
-    mediaType: "images", // "video" | "images" | "placeholder"
-    videoUrl: null,
+    mediaType: "video", // "video" | "images" | "placeholder"
+    videoUrl: "https://youtu.be/zirdNtYABsQ?si=7LmB83guPkf_q97a",
     github: "https://github.com/Volbis/ParkoNova",
-    demo: null,
+    demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_java-javafx-mysql-activity-7317521095052390400-ydbn?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["JavaFX", "Maven", "MySQL", "Java", "POO"],
     features: ["Visualisation en temps réel des places disponibles", "Ajout/suppression dynamique de véhicules", "Enregistrement des mouvements (entrée/sortie)", "Statistiques de gestion d'espace", "Interface graphique intuitive"],
   },
 
   {
-    id: 7,
+    id: 6,
     featured: false,
     title: "Vendor",
-    description: "Application mobile complète de gestion de station de lavage automobile avec React Native/Expo.",
+    description: "CONFIDENTIEL: Application mobile complète de gestion de station de lavage automobile avec React Native/Expo.",
     fullDescription: "Vendor est une solution tout-en-un développée avec React Native, Expo et TypeScript pour gérer l'ensemble des opérations d'une station de lavage automobile. L'architecture scalable intègre une gestion clients avancée, un système de réservations en temps réel, un inventaire dynamique, une boutique complète avec paiement mobile intégré, ainsi qu'un portefeuille digital avec suivi financier détaillé. Cette application full-stack mobile offre une expérience utilisateur fluide et professionnelle pour les gestionnaires et clients.",
     image: "https://picsum.photos/id/1021/800/500",
     images: [
@@ -179,21 +168,17 @@ export const projects = [
     ],
   },
   {
-    id: 8,
+    id: 7,
     featured: true,
     title: "GL Bot",
     description: "Bot Telegram intelligent pour la gestion et le téléchargement automatisé de fichiers académiques via Google Drive.",
     fullDescription: "GL Bot est un assistant conversationnel développé pour révolutionner l'accès aux documents académiques. Fini les recherches interminables dans les conversations ou les dossiers éparpillés ! Le bot utilise l'API Google Drive pour rechercher et télécharger n'importe quel fichier (devoirs, cours, etc.) en quelques secondes. Cette automatisation fait gagner un temps précieux et améliore considérablement l'organisation quotidienne des étudiants.",
     image: "https://picsum.photos/id/1020/800/500",
-    images: [
-      "https://picsum.photos/id/1020/800/500",
-      "https://picsum.photos/id/1015/800/500",
-      "https://picsum.photos/id/1016/800/500"
-    ],
-    mediaType: "images", // "video" | "images" | "placeholder"
-    videoUrl: null,
-    github: "https://github.com/Volbis/GL-bot",
-    demo: null,
+    images: [],
+    mediaType: "video", // "video" | "images" | "placeholder"
+    videoUrl: "https://youtu.be/rwTxcJk_UIs?si=hqABl_DpMvlCIB9b",
+    github: "https://github.com/Volbis/Corro_Gl_Telegram_Bot",
+    demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_python-bottelegram-automatisation-activity-7305720222856925187-_E2J?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["Python", "Telegram API", "Google Drive API", "NLP"],
     features: [
       "Recherche instantanée de fichiers",
@@ -208,7 +193,7 @@ export const projects = [
 
   // PROJETS WEB / FULL STACK (Grille uniquement)
   {
-    id: 9,
+    id: 8,
     featured: false,
     title: "ESATIC Register",
     description: "Système web de gestion d'inscriptions et d'étudiants pour établissement académique.",
@@ -221,41 +206,38 @@ export const projects = [
     ],
     mediaType: "placeholder", // "video" | "images" | "placeholder"
     videoUrl: null,
-    github: "https://github.com/Volbis/Esatic-Register",
+    github: "https://github.com/Volbis/Esatic-resgister",
     demo: null,
-    tech: ["Django", "Python", "PostgreSQL", "HTML/CSS"],
+    tech: ["Django", "Python", "SQlite", "HTML/CSS", "AWS", "EC2"],
     features: ["Inscription en ligne", "Gestion des dossiers", "Suivi académique", "Dashboard admin"],
   },
   {
-    id: 10,
+    id: 9,
     featured: false,
     title: "RestauPilot",
     description: "Solution de digitalisation pour restaurants avec gestion des commandes et réservations.",
     fullDescription: "RestauPilot modernise la gestion des restaurants en offrant un système intégré de gestion des menus, commandes et réservations. L'application propose un dashboard administrateur complet et une interface client intuitive pour une expérience culinaire optimale.",
     image: "https://picsum.photos/id/1023/800/500",
-    images: [
-      "https://picsum.photos/id/1023/800/500",
-      "https://picsum.photos/id/1018/800/500",
-      "https://picsum.photos/id/1019/800/500"
-    ],
-    mediaType: "images", // "video" | "images" | "placeholder"
-    videoUrl: null,
+    images: [],
+    mediaType: "video", // | "images" | "placeholder"
+    videoUrl: "https://youtu.be/jfjPDaNc4c0?si=m33upXNrYQt4r2Zq",
     github: "https://github.com/Volbis/RestauPilot",
-    demo: null,
+    demo: "https://restau-pilot-y5di.vercel.app/",
     tech: ["Django", "React", "MySQL", "WebSocket"],
     features: ["Gestion des menus", "Commandes en ligne", "Réservations", "Dashboard admin"],
   },
   {
-    id: 11,
+    id: 10,
     featured: false,
     title: "SmarterCIE",
     description: "Application web intelligente d'optimisation de la consommation électrique.",
     fullDescription: "SmarterCIE est une plateforme innovante pour suivre et optimiser la consommation électrique. Intégrant des algorithmes d'IA, l'application analyse les patterns de consommation et propose des recommandations personnalisées pour réduire les coûts énergétiques.",
     image: "https://picsum.photos/id/1024/800/500",
     images: [
-      "https://picsum.photos/id/1024/800/500",
-      "https://picsum.photos/id/1019/800/500",
-      "https://picsum.photos/id/1020/800/500"
+      p_smartci1,
+      p_smartci2,
+      p_smartci3,
+      p_smartci4
     ],
     mediaType: "images", // "video" | "images" | "placeholder"
     videoUrl: null,
@@ -267,7 +249,7 @@ export const projects = [
 
   // PROJETS IA / BOTS (Grille uniquement)
   {
-    id: 12,
+    id: 11,
     featured: false,
     title: "AI App 2",
     description: "Application d'intelligence artificielle pour l'assistance et l'analyse de contenu.",
@@ -281,30 +263,53 @@ export const projects = [
     mediaType: "placeholder", // "video" | "images" | "placeholder"
     videoUrl: null,
     github: "https://github.com/Volbis/Ai-app2",
-    demo: null,
+    demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_abiaslides-activity-7341142093995589633-fOJl?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
     tech: ["Python", "OpenAI API", "NLP", "Flask"],
     features: ["Assistant IA", "Analyse de texte", "Génération de contenu", "API REST"],
   },
 
   // JEU VIDÉO (Grille uniquement)
   {
-    id: 13,
+    id: 12,
     featured: false,
     title: "App 1 - Jeu Vidéo",
     description: "Projet de jeu mobile ou PC avec gameplay innovant et graphismes modernes.",
     fullDescription: "App 1 est un projet de jeu vidéo expérimental développé pour explorer les possibilités du game design moderne. Le jeu propose une expérience immersive avec des mécaniques de gameplay innovantes et une direction artistique soignée.",
-    image: "https://picsum.photos/id/1026/800/500",
+    image: "",
     images: [
-      "https://picsum.photos/id/1026/800/500",
-      "https://picsum.photos/id/1016/800/500",
-      "https://picsum.photos/id/1018/800/500"
     ],
     mediaType: "placeholder", // "video" | "images" | "placeholder"
     videoUrl: null,
-    github: "https://github.com/Volbis/App1-game",
+    github: "https://github.com/Volbis/APP-Game-KORWASIRI",
     demo: null,
     tech: ["Unity", "C#", "Android SDK", "Game Design"],
     features: ["Gameplay innovant", "Graphismes modernes", "Multi-plateforme", "Optimisation performance"],
+  },
+  {
+    id: 13,
+    featured: true,
+    title: "AcadHub",
+    description: "Plateforme académique complète pour centraliser et automatiser les processus scolaires.",
+    fullDescription: "AcadHub simplifie la gestion des activités académiques pour les établissements scolaires et universitaires. Développé en C++ avec le framework Qt pour une interface riche et performante, et stylé via QSS pour une personnalisation avancée, AcadHub s'appuie sur MySQL pour un stockage structuré des données. La plateforme gère les inscriptions et connexions (étudiants, enseignants, administrateurs), la gestion des cours, des salles, des matières, des notes, et propose des outils d'automatisation et de suivi en temps réel.",
+    image: "https://img.icons8.com/fluency/800/school.png",
+    images: [
+      "https://img.icons8.com/fluency/800/school.png",
+      "https://img.icons8.com/fluency/800/graduation-cap.png"
+    ],
+    mediaType: "video",
+    videoUrl: "https://youtu.be/nO1YMtaEDsI?si=5M8T74yCgkKca58Y",
+    github: null,
+    demo: "https://www.linkedin.com/posts/albert-coulibaly-2789a5324_acadhub-gestionacademique-c-activity-7288655308984393728-TAw5?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFIEOTwBIEUqUUzQAYyQFs-XK7KGx5fiapk",
+    tech: ["C++", "Qt", "QSS", "MySQL"],
+    features: [
+      "Gestion des inscriptions et authentification multi-rôles (étudiants/enseignants/admin)",
+      "Administration des cours, matières et plannings de salles",
+      "Saisie et gestion des notes avec calculs automatisés de moyennes",
+      "Tableaux de bord pour le suivi en temps réel des activités",
+      "Personnalisation de l'interface via QSS",
+      "Architecture orientée performance et robustesse (C++/Qt)",
+      "Base de données MySQL pour stockage sécurisé et structuré"
+    ],
   },
 ];
 
