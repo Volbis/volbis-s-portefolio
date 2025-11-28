@@ -45,7 +45,7 @@ export const projects = [
     featured: true,
     title: "Climbie",
     description: "Application full-stack de gestion hôtelière complète développée avec NestJS et Prisma ORM.",
-    fullDescription: "CONFIDENTIEL: Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
+    fullDescription: "Climbie est une solution de gestion hôtelière professionnelle développée avec NestJS (TypeScript), Prisma ORM et MySQL. L'architecture modulaire robuste gère plus de 30 tables interconnectées pour couvrir l'ensemble des besoins opérationnels d'un groupe hôtelier. Le système intègre une gestion complète des réservations et hébergements, un système multi-utilisateurs avec rôles et permissions granulaires, une authentification JWT sécurisée avec blacklist, la gestion des stocks (commandes, livraisons), et l'upload de documents. L'architecture respecte une séparation claire des responsabilités avec DTOs pour la validation, guards personnalisés pour la sécurité, et une approche modulaire facilitant la maintenance et l'évolutivité.",
     image: "https://picsum.photos/id/1030/800/500",
     images: [
       "https://picsum.photos/id/1030/800/500",
@@ -141,7 +141,7 @@ export const projects = [
     id: 6,
     featured: false,
     title: "Vendor",
-    description: "CONFIDENTIEL: Application mobile complète de gestion de station de lavage automobile avec React Native/Expo.",
+    description: "Application mobile complète de gestion de station de lavage automobile avec React Native/Expo.",
     fullDescription: "Vendor est une solution tout-en-un développée avec React Native, Expo et TypeScript pour gérer l'ensemble des opérations d'une station de lavage automobile. L'architecture scalable intègre une gestion clients avancée, un système de réservations en temps réel, un inventaire dynamique, une boutique complète avec paiement mobile intégré, ainsi qu'un portefeuille digital avec suivi financier détaillé. Cette application full-stack mobile offre une expérience utilisateur fluide et professionnelle pour les gestionnaires et clients.",
     image: "https://picsum.photos/id/1021/800/500",
     images: [
