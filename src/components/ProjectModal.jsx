@@ -77,22 +77,7 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
                     {project.title}
                   </h2>
                   <p className="text-gray-300 text-base leading-relaxed">
-                    {/** Mettre en gras les occurrences du mot CONFIDENTIEL */}
-                    {(() => {
-                      const text = project.fullDescription || "";
-                      // Split on the exact word CONFIDENTIEL (case-sensitive) and keep delimiters
-                      const parts = text.split(/(CONFIDENTIEL)/g);
-                      return parts.map((part, idx) =>
-                        part === "CONFIDENTIEL" ? (
-                          <strong key={idx} className="font-semibold text-white">
-                            {part}
-                          </strong>
-                        ) : (
-                          // preserve original text segments
-                          <span key={idx}>{part}</span>
-                        )
-                      );
-                    })()}
+                    {project.fullDescription}
                   </p>
                 </div>
 

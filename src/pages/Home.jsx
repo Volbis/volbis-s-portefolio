@@ -416,8 +416,12 @@ export default function Home() {
             </span>
           </motion.button>
           
-          <motion.button
-            className="group w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent border border-gray-600 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 hover:border-white/30 text-sm sm:text-base"
+          <motion.a
+            href="/cv/Albert_Coulibaly_CV.pdf"
+            download="Albert_Coulibaly_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent border border-gray-600 text-white font-semibold rounded-xl transition-all duration-300 hover:bg-white/5 hover:border-white/30 text-sm sm:text-base block text-center cursor-pointer"
             whileHover={{ 
               scale: 1.02, 
               y: -2
@@ -431,14 +435,14 @@ export default function Home() {
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
-                initial={{ x: 0 }}
-                whileHover={{ x: 3 }}
+                initial={{ y: 0 }}
+                whileHover={{ y: 3 }}
                 transition={{ duration: 0.2 }}
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </motion.svg>
             </span>
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Indicateur de scroll */}
