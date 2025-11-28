@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import BackgroundWrapper from './components/BackgroundWrapper';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Projects from './pages/project';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
@@ -16,9 +17,9 @@ const App = () => {
         <Home />
       </section>
 
-      {/* Profile Section */}
+      {/* Profile Section */} 
       <section id="profile" className="min-h-screen py-5">
-        <Projects />
+        <Profile />
       </section>
 
       {/* Projects Section */}
