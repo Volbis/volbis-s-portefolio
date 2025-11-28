@@ -238,14 +238,18 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
 
           {/* Mobile: Format plein écran */}
           <div className="md:hidden relative w-full h-full bg-black">
-            <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/90 to-transparent p-4 flex items-center justify-between">
-              <button onClick={onClose} className="p-2 bg-black/50 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black via-black/95 to-black/70 backdrop-blur-md p-4 flex items-center justify-between border-b border-white/10 shadow-xl">
+              <button onClick={onClose} className="p-2.5 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-200 border border-white/20">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                   <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
                 </svg>
               </button>
-              <div className="text-white text-sm font-medium">{project.title}</div>
-              <div className="w-10"></div>
+              <div className="flex-1 mx-3 text-center">
+                <h1 className="text-white text-base font-bold truncate bg-gradient-to-r from-orange-400 via-white to-orange-400 bg-clip-text text-transparent drop-shadow-lg">
+                  {project.title}
+                </h1>
+              </div>
+              <div className="w-11"></div>
             </div>
 
             <div className="h-full overflow-y-auto pt-16 pb-24" onClick={(e) => e.stopPropagation()}>
