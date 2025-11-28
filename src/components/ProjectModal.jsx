@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import ProjectMediaViewer from "./ProjectMediaViewer";
 
 export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevious }) {
-  if (!isOpen || !project) return null;
-
   // Empêche le scroll du body quand le modal est ouvert et restaure après fermeture
   useEffect(() => {
     // Only run when modal is open
@@ -14,25 +12,27 @@ export default function ProjectModal({ project, isOpen, onClose, onNext, onPrevi
 
     // Lock scroll but preserve scroll position
     const scrollY = window.scrollY || window.pageYOffset;
-    const prevPosition = document.body.style.position;
-    const prevTop = document.body.style.top;
-    const prevOverflow = document.body.style.overflow;
-
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = '0';
-    document.body.style.right = '0';
-    document.body.style.overflow = 'hidden';
+    const body = document.body;
+    
+    // Save original styles
+    const prevOverflow = body.style.overflow;
+    const prevPaddingRight = body.style.paddingRight;
+    
+    // Get scrollbar width to prevent layout shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    
+    // Apply lock
+    body.style.overflow = 'hidden';
+    body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
-      // restore
-      document.body.style.position = prevPosition || '';
-      document.body.style.top = prevTop || '';
-      document.body.style.overflow = prevOverflow || '';
-      // restore scroll position
-      window.scrollTo(0, scrollY);
+      // Restore original styles
+      body.style.overflow = prevOverflow;
+      body.style.paddingRight = prevPaddingRight;
     };
   }, [isOpen]);
+
+  if (!isOpen || !project) return null;
 
   return (
     <AnimatePresence>

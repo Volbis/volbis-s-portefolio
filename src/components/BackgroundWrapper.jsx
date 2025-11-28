@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 const BackgroundWrapper = ({ children }) => {
   return (
-    <div className="relative min-h-screen bg-gray-950 overflow-hidden">
+    <div className="relative min-h-screen bg-gray-950">
       {/* Fond principal avec gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black" />
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black -z-10" />
       
       {/* Effets d'arrière-plan animés */}
-      <div className="fixed inset-0 pointer-events-none">
+      <div className="fixed inset-0 pointer-events-none -z-10">
         {/* Orbe bleu flottant */}
         <motion.div
           className="absolute top-1/4 left-1/6 w-48 sm:w-64 lg:w-80 h-48 sm:h-64 lg:h-80 bg-blue-500/8 rounded-full blur-3xl"
