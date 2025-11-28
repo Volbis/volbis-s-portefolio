@@ -16,6 +16,11 @@ const App = () => {
         <Home />
       </section>
 
+      {/* Profile Section */}
+      <section id="profile" className="min-h-screen py-5">
+        <Projects />
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="min-h-screen py-5">
         <Projects />
